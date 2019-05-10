@@ -5,40 +5,39 @@ import willProfile from '../assets/images/willProfile.png';
 import benProfile from '../assets/images/benProfile.png';
 
 class Team extends React.Component {
-  render() {
+    render() {
 
     return (
-      <div className="teamContainer" >
-          <Header >UX Developer:</Header>
-          <a>Brittney Thomas</a>
-          <img
+        <div className="teamContainer" >
+        <Header >UX Developer:</Header>
+        <a>Brittney Thomas</a>
+        <img
             className="teamPics"
             height="450"
             src={brittneyProfile}
             alt="brittneyProfile"
-            />
-
-
-          <Header >Front End Architect:</Header>
-          <a>William Soukkachang</a>
-          <img
+        />
+        
+        <Header >Front End Architect:</Header>
+        <a>William Soukkachang</a>
+        <img
             className="teamPics"
             height="450"
             src={willProfile}
             alt="willProfile"
-            />
-
-          <Header >Backend Architect:</Header>
-          <a>Ben Tsao</a>
-          <img
+        />
+        
+        <Header >Backend Architect:</Header>
+        <a>Ben Tsao</a>
+        <img
             className="teamPics"
             height="450"
             src={benProfile}
             alt="benProfile"
-            />
-      </div>
-    )
-  }
+        />
+        </div>
+        )
+    }
 }
 
 export default Team;

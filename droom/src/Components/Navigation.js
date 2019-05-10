@@ -14,7 +14,7 @@ class Navigation extends React.Component {
         />
         <div className="nav-bar">
           <div>
-            <Link to="/">Home</Link>
+            <Link to="/home/">Home</Link>
           </div>
           <div>
             <Link to="/about/">About</Link>
