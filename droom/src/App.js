@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import { Home, About, SignUp, Login, Team, Navigation } from './Components/Index';
+
 import { Route } from 'react-router-dom';
+// import PrivateRoute from './components/PrivateRoute';
+import Navigation from './components/Navigation';
+import Home from './components/Home';
+import About from './components/About';
+import Register from './components/Register';
+import Login from './components/Login';
+import Team from './components/Team';
 
 
-const App = () => (
-  <div>
-    <Navigation />
-    <Route exact path="/" component={Home} />
-    <Route path="/about" component={About} />
-    <Route path="/signup" component={SignUp} />
-    <Route path="/login" component={Login} />
-    <Route path="/team" component={Team} />
-  </div>
-);
+class App extends Component {
+  componentDidMount() {
+    console.log("mounted");
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Navigation />
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/reg" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/team" component={Team} />
+    </div>
+    );
+  }
+}
 
 export default App;

@@ -1,29 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import droom from '../assets/images/droom.png';
 
-const Navigation = () => {
-  return (
-    <div>
-      <h1>Droom</h1>
-      <div className="nav-bar">
-        <div>
-          <Link to="/">Home</Link>
-        </div>
-        <div>
-          <Link to="/about/">About</Link>
-        </div>
-        <div>
-          <Link to="/signup/">Sign Up</Link>
-        </div>
-        <div>
-          <Link to="/login/">Login</Link>
-        </div>
-        <div>
-          <Link to="/team/">Team</Link>
+class Navigation extends React.Component {
+  render() {
+    return (
+      <div>
+        <img
+                    className="droomBg"
+                    height="200"
+                    src={droom}
+                    alt="droom"
+        />
+        <div className="nav-bar">
+          <div>
+            <Link to="/">Home</Link>
+          </div>
+          <div>
+            <Link to="/about/">About</Link>
+          </div>
+          <div>
+            <Link to="/register/">Register</Link>
+          </div>
+          <div>
+            <Link to="/login/">Login</Link>
+          </div>
+          <div>
+            <Link to="/team/">Team</Link>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Navigation;
