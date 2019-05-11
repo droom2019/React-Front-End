@@ -1,35 +1,31 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import droom from '../assets/images/droom.png';
+import { withRouter } from "react-router";
+import { Link } from 'react-router-dom';
+import droomLogoTrans from '../assets/images/droomtrans.png';
+import { LoginButton } from '../StyledComponents';
 
 class Home extends React.Component {
     render() {
+
         return (
-            <div>
-                <div className="container">
-                    <div className="row">
-                    <div className="col-md-6 box1">
-                        <h1 className="content-title title-one">Find Your</h1>
-                        <h1 className="content-title title-two">Dream</h1>
-                        <h1 className="content-title title-three">Job!</h1>
-                        <img className="droomBg" height="450" src={droom} alt="droom"/>
-                        <img className="droomCta" height="90" src={droom} alt="droom logo" />
-                        <div className="row row1 cta-buttons">
-                            <NavLink to="/register/" className="btn-block signupBtn">
-                                SignUp
-                            </NavLink>
-                        </div>
-                        <div className="row row2 cta-buttons">
-                            <NavLink to="/login/" className="btn-block loginBtn">
-                                Login
-                            </NavLink>
-                        </div>
-                        </div>
+            <div className="homeContainer">
+                <div className="homeHeader">
+                    <h1>Find your dream job. </h1>
+                    <h1></h1>
+                    <div className ="swipe">
+                        <h1>JUST SWIPE.</h1>
+                    </div>
+                    </div>
+                <div className="imgContainer">
+                    <img className="" src={droomLogoTrans} alt="droom logo transparent" />
+                    </div>
+                <div className="homeBtnsContainer">
+                    <LoginButton>Register</LoginButton>
+                    <LoginButton>Log In</LoginButton>
                     </div>
                 </div>
-        </div>
-        )
-    }
+                )
+            }
 };
 
 export default Home;
