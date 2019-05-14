@@ -8,9 +8,16 @@ export const NavBar = styled.nav`
   text-decoration: none;
 `;
 
-export const NavLinkStyled = styled.link`
+export const NavLink = styled.link`
   color: #fff;
   text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  &:hover {
+    background-color: #fff;
+    color: #50BDE4;
+    text-decoration: none;
+  }
 `;
 
 export const Form = styled.form`
@@ -33,7 +40,7 @@ export const Label = styled.label`
 export const Header = styled.label`
   text-align: left;
   margin: 5px;
-  font-size: 50px;
+  font-size: 60px;
   color: white;
 `;
 
@@ -42,23 +49,23 @@ export const Input = styled.input`
   border-radius: 3px;
   margin: 3px;
   padding: 10px;
-  width: 275px;
+  width: 270px;
   font-size: 14px;
 `;
 
 export const LoginButton = styled.button`
-  background-color: #5af3fd;
-  border: 2px solid #5af3fd;
-  border-radius: 3px;
-  margin: 3px;
+  background-color: #50BDE4;
+  border: 2px solid #50BDE4;
+  border-radius: 100px;
+  margin: 20px 5px;
   padding: 10px;
-  font-size: 14px;
-  color: #2e008f;
-  width: 275px;
+  font-size: 18px;
+  color: white;
+  width: 250px;
   cursor: pointer;
   &:hover {
     background-color: #fff;
-    color: blue;
+    color: #50BDE4;
   }
 `;
 

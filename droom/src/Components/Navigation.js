@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
+import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import droom from '../assets/images/droom.png';
 
 class Navigation extends React.Component {
@@ -12,24 +13,34 @@ class Navigation extends React.Component {
                     src={droom}
                     alt="droom"
         />
-        <div className="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+        
           <div>
-            <Link to="/home/">Home</Link>
+            <NavLink to="/home/" activeClassName="activeNav">Home</NavLink>
           </div>
           <div>
-            <Link to="/about/">About</Link>
+            <NavLink to="/about/" activeClassName="activeNav">About</NavLink>
           </div>
           <div>
-            <Link to="/register/">Register</Link>
+            <MDBDropdown className="registerButton">
+              <MDBDropdownToggle caret color="primary">
+                Register
+              </MDBDropdownToggle>
+              <MDBDropdownMenu  basic >
+                <MDBDropdownItem><NavLink to="/companysignup/" activeClassName="activeNav" class="dropdown-item" >Company</NavLink></MDBDropdownItem>
+                <MDBDropdownItem divider />
+                <MDBDropdownItem><NavLink to="/jobseekersignup/" activeClassName="activeNav" class="dropdown-item" >Job Seeker</NavLink></MDBDropdownItem>
+              </MDBDropdownMenu>
+            </MDBDropdown>
+            </div>
+          <div>
+            <NavLink to="/login/" activeClassName="activeNav">Login</NavLink>
           </div>
           <div>
-            <Link to="/login/">Login</Link>
+            <NavLink to="/team/" activeClassName="activeNav">Team</NavLink>
           </div>
-          <div>
-            <Link to="/team/">Team</Link>
-          </div>
+          </nav>
         </div>
-      </div>
     );
   }
 };

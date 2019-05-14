@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { register } from '../actions';
 import { Label, Input, LoginButton, Form } from '../StyledComponents';
 
-class Register extends React.Component {
+class JobSeekerSignUp extends React.Component {
    state = {
       newUser: {
          firstName: "",
@@ -44,7 +44,7 @@ class Register extends React.Component {
             <form onSubmit={this.handleSubmit} class="text-center border border-light p-5">
                {this.props.registerError && <p>Error on sign up, try again</p>}
                
-               <p class="h4 mb-4">Sign up</p>
+               <p class="h4 mb-4">Job Seeker Sign Up</p>
                <div class="form-row mb-4">
                   <div class="col">
                         {/* <!-- First name --> */}
@@ -116,4 +116,4 @@ const mapStateToProps = state => {
 
 // export default connect( mapStateToProps, { register })(Register);
 
-export default (Register);
+export default (JobSeekerSignUp);

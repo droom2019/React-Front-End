@@ -18,12 +18,14 @@
   }
 }
 
-.nav-bar {
+.navbar {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding:20px ;
+  justify-content: space-evenly;
+  padding: 15px 20px;
   margin: 0px auto;
+  font-size: 20px;
+  text-transform: uppercase;
   background-color: lightgrey;
 }
 
@@ -46,7 +48,8 @@ h1 {
 a {
   text-decoration: none;
   color: white;
-  font-family: "Great Vibes", cursive;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  margin: 10px;
 }
 
 .homeContainer {
@@ -74,6 +77,7 @@ a {
   padding: 20px 0px;
   text-align: center;
   color: white;
+  text-shadow: 1px 2px 4px darkgrey, 0 0 .5em #50BDE4, 0 0 0.5em white;
 }
 
 
@@ -82,7 +86,7 @@ a {
   flex-direction: column;
   align-items: center;
   margin: 0px auto;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .aboutContainer {
@@ -103,6 +107,27 @@ a {
   text-align: center;
   text-transform: uppercase;
   color: white;
+  text-shadow: 1px 2px 4px darkgrey, 0 0 .5em #50BDE4, 0 0 0.5em white;
+}
+
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px 0px;
+  margin: 0px auto;
+  background: linear-gradient(to bottom,#50BDE4, lightgrey);
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px 0px;
+  margin: 0px auto;
+  background: linear-gradient(to bottom,#50BDE4, lightgrey);
 }
 
 .teamContainer {
@@ -111,5 +136,62 @@ a {
   align-items: center;
   justify-content: space-around;
   margin: 0px auto;
+  padding: 20px 0px;
   background: linear-gradient(to bottom,#50BDE4, lightgrey);
+}
+
+.teamContainer a {
+  font-size: 50px;
+}
+
+.teamContainer img {
+  border: 10px solid white;
+  margin-bottom: 30px;
+}
+
+a:hover {
+  color: rgb(19, 188, 250);
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.activeNav {
+  /* background-color: darkgrey;
+  border-radius: 2px; */
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(95, 95, 95);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.registerButton {
+  border: 0px solid black;
+  background-color:  rgb(95, 95, 95);
+  color: black;
+}
+
+.btn-primary.dropdown-toggle {
+  border: 0px solid black;
+  background-color: lightgrey;
+  border-color: lightgrey;
+  font-size: 20px;
+  color: white;
+}
+
+.dropdown-menu.show {
+  background-color: lightgrey;
+  border-color: lightgrey;
+  font-size: 20px;
+  color: white;
+}
+
+.show .btn-primary.dropdown-toggle{
+  background-color: lightgrey;
+  border-color: lightgrey;
+  border: 0px solid black;
+  font-size: 20px;
+  color: white;
 }
