@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions';
 import { Label, Input, LoginButton, Form } from '../StyledComponents';
+// import "mdbreact/dist/css/mdb.css";
 
 class Login extends React.Component {
   state = {
@@ -22,9 +23,10 @@ class Login extends React.Component {
 
   handleLogin = (e) => {
     e.preventDefault()
+    console.log("pushed login");
 
     this.props.login(this.state.credentials)
-      .then(() => this.props.history.push("/login")
+      .then(() => this.props.history.push("https://droom-buildweek-4-15-19.herokuapp.com/api/auth/login")
       );
   };
 
@@ -32,10 +34,27 @@ class Login extends React.Component {
     
     return (
       <div className = "loginContainer">
-        <form class="border border-light p-5">
+        <form class="border border-light p-5" onSubmit={this.handleLogin}>
+        {this.props.loginError && <p>Error on login, try again</p>}
           <p class="h4 mb-4 text-center">Sign in</p>
-          <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail"/>
-          <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password"/>
+
+          <input 
+          type="email" 
+          id="defaultLoginFormEmail" 
+          class="form-control mb-4" 
+          defaultValue={this.state.credentials.username}
+          onChange={this.handleChange}
+          placeholder="E-mail"
+          />
+
+          <input 
+          type="password" 
+          id="defaultLoginFormPassword" 
+          class="form-control mb-4" 
+          defaultValue={this.state.credentials.password}
+          onChange={this.handleChange}
+          placeholder="Password"
+          />
           
             <div class="d-flex justify-content-between">
                 <div>
@@ -76,12 +95,10 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
-
-{/* const mapStateToProps = state => {
+const mapStateToProps = state => {
   return {
     loginError: state.loginError
   };
-}; */}
+};
 
-{/* export default connect( mapStateToProps, { login })(Login); */}
+export default connect( mapStateToProps, { login })(Login);

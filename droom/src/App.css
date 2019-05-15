@@ -168,30 +168,27 @@ a:hover {
 }
 
 .registerButton {
-  border: 0px solid black;
   background-color:  rgb(95, 95, 95);
   color: black;
 }
 
 .btn-primary.dropdown-toggle {
-  border: 0px solid black;
   background-color: lightgrey;
-  border-color: lightgrey;
+  border: none;
   font-size: 20px;
   color: white;
 }
 
 .dropdown-menu.show {
   background-color: lightgrey;
-  border-color: lightgrey;
+  border-color: black;
   font-size: 20px;
   color: white;
 }
 
 .show .btn-primary.dropdown-toggle{
   background-color: lightgrey;
-  border-color: lightgrey;
-  border: 0px solid black;
+  border-color: black;
   font-size: 20px;
   color: white;
 }

@@ -1,28 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { register } from '../actions';
+import { jobseekersignup } from '../actions';
 import { Label, Input, LoginButton, Form } from '../StyledComponents';
 
 class JobSeekerSignUp extends React.Component {
    state = {
-      newUser: {
-         firstName: "",
-         lastName: "",
-         email: "",
-         password: "",
-         phone: "",
-         company:"",
-         skills: "",
-         userType:"",
-      }
+      seekers: [
+         {  userId: "",
+            firstName: "John",
+            lastName: "Dough",
+            profilePicture:"",
+            month:"2",
+            day:"4",
+            year:"1994",
+            country:"US",
+            state:"California",
+            city: "San Francisco",
+            zipcode:"93552",
+            email: "",
+            password: ""
+         }
+      ]
    };
 
    handleChange = e => {
       e.preventDefault();
 
       this.setState({
-         newUser: {
-            ...this.state.newUser,
+         seekers: {
+            ...this.state.seekers,
             [e.target.name]: e.target.type === 'number' ? parseInt(e.target.value) : e.target.value
          }
       });
@@ -31,50 +37,69 @@ class JobSeekerSignUp extends React.Component {
    handleSubmit = e => {
       e.preventDefault()
 
-      // this.props.register(this.state.newUser)
-      // .then(res => (res === false) ? null : this.props.history.push("/register")      
-      // );
+      this.props.register(this.state.newUser)
+      .then(res => (res === false) ? null : this.props.history.push("https://droom-buildweek-4-15-19.herokuapp.com/api/seekers")      
+      );
    };
 
    render() {
-
+      
       return (
+
          <div className="registerContainer">
             {/* <!-- Default form register --> */}
             <form onSubmit={this.handleSubmit} class="text-center border border-light p-5">
                {this.props.registerError && <p>Error on sign up, try again</p>}
                
                <p class="h4 mb-4">Job Seeker Sign Up</p>
-               <div class="form-row mb-4">
-                  <div class="col">
-                        {/* <!-- First name --> */}
-                        <input type="text" id="defaultRegisterFormFirstName" value={this.state.newUser.firstName} onChange={this.handleChange} class="form-control" placeholder="First name"/>
+
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <label for="inputEmail">Email</label>
+                     {/* <!-- E-mail --> */}
+                     <input type="email" id="defaultRegisterFormEmail" value={this.state.seekers.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
                   </div>
-                  <div class="col">
-                        {/* <!-- Last name --> */}
-                        <input type="text" id="defaultRegisterFormLastName" value={this.state.newUser.lastName} onChange={this.handleChange} class="form-control" placeholder="Last name"/>
+
+                  <div class="form-group col-md-6">
+                     <label for="inputPassword">Password</label>
+                     {/* <!-- Password --> */}
+                     <input type="password" id="defaultRegisterFormPassword" value={this.state.seekers.password} onChange={this.handleChange} class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
+                     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                        At least 8 characters and 1 digit
+                     </small>
                   </div>
                </div>
 
-               {/* <!-- E-mail --> */}
-               <input type="email" id="defaultRegisterFormEmail" value={this.state.newUser.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
+                  {/* <!-- DOB --> */}
+                  <div class="md-form">
+                     <label for="date-picker-example">Date of Birth</label>
+                     <input placeholder="Select date" type="text" id="date-picker-example" class="form-control datepicker"/>
+                  </div>
 
-               {/* <!-- Password --> */}
-               <input type="password" id="defaultRegisterFormPassword" value={this.state.newUser.password} onChange={this.handleChange} class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
-               <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                  At least 8 characters and 1 digit
-               </small>
+                  <div class="form-group">
+                     <label for="inputCountry">Country</label>
+                     {/* <!-- Country --> */}
+                     <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.country} onChange={this.handleChange} class="form-control" placeholder="Country"/>
+                  </div>
+                     
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        {/* <!-- City --> */}
+                        <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.city} onChange={this.handleChange} class="form-control" placeholder="City"/>
+                     </div>
 
-               {/* <!-- Phone number --> */}
-               <input type="text" id="defaultRegisterPhonePassword" value={this.state.newUser.phone} onChange={this.handleChange} class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock"/>
-               <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                  Optional - for two step authentication
-               </small>
+                     <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        {/* <!-- State --> */}
+                        <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.state} onChange={this.handleChange} class="form-control" placeholder="State"/>
+                     </div>
 
-               {/* <!-- Newsletter --> */}
-               <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter"/>
-                  <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+                     <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        {/* <!-- Zip Code --> */}
+                        <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.zipcode} onChange={this.handleChange} class="form-control" placeholder="Zip code"/>
+                     </div>
                </div>
 
                {/* <!-- Sign up button --> */}
@@ -114,6 +139,4 @@ const mapStateToProps = state => {
    };
 };
 
-// export default connect( mapStateToProps, { register })(Register);
-
-export default (JobSeekerSignUp);
+export default connect( mapStateToProps, { jobseekersignup })(JobSeekerSignUp);

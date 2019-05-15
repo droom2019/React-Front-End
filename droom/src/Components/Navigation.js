@@ -24,7 +24,7 @@ class Navigation extends React.Component {
           <div>
             <MDBDropdown className="registerButton">
               <MDBDropdownToggle caret color="primary">
-                Register
+                REGISTER
               </MDBDropdownToggle>
               <MDBDropdownMenu  basic >
                 <MDBDropdownItem><NavLink to="/companysignup/" activeClassName="activeNav" class="dropdown-item" >Company</NavLink></MDBDropdownItem>

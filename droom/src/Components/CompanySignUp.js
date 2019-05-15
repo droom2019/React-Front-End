@@ -1,29 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { register } from '../actions';
+import { companysignup } from '../actions';
 import { Label, Input, LoginButton, Form } from '../StyledComponents';
 
 class CompanySignUp extends React.Component {
    state = {
-      newUser: {
-         firstName: "",
-         lastName: "",
-         email: "",
-         password: "",
-         phone: "",
-         company:"",
-         skills: "",
-         userType:"",
-         posting:"",
-      }
+      companies: [
+         {  userId: "1",
+            email: "apple@apple.com",
+            password: "password",
+            companyName: "Apple",
+            companyPicture: "",
+            companyDescription: "An About me for the company",
+            country: "South Korea",
+            state: "NA",
+            city: "Seoul",
+            zipcode: "4000"
+         },
+
+         {  userId: "2",
+            email: "microsoft@microsoft.com",
+            password: "password",
+            companyName: "Microsoft",
+            companyPicture: "",
+            companyDescription: "An About me for the company",
+            country: "USA",
+            state: "WA",
+            city: "Redmond",
+            zipcode: "98052"
+         }
+      ]
    };
 
    handleChange = e => {
       e.preventDefault();
 
       this.setState({
-         newUser: {
-            ...this.state.newUser,
+         companies: {
+            ...this.state.companies,
             [e.target.name]: e.target.type === 'number' ? parseInt(e.target.value) : e.target.value
          }
       });
@@ -32,9 +46,9 @@ class CompanySignUp extends React.Component {
    handleSubmit = e => {
       e.preventDefault()
 
-      // this.props.register(this.state.newUser)
-      // .then(res => (res === false) ? null : this.props.history.push("/register")      
-      // );
+      this.props.companysignup(this.state.companies)
+      .then(res => (res === false) ? null : this.props.history.push("https://droom-buildweek-4-15-19.herokuapp.com/api/companies")      
+      );
    };
 
    render() {
@@ -46,36 +60,54 @@ class CompanySignUp extends React.Component {
                {this.props.registerError && <p>Error on sign up, try again</p>}
                
                <p class="h4 mb-4">Company Sign Up</p>
-               <div class="form-row mb-4">
-                  <div class="col">
-                        {/* <!-- First name --> */}
-                        <input type="text" id="defaultRegisterFormFirstName" value={this.state.newUser.firstName} onChange={this.handleChange} class="form-control" placeholder="First name"/>
+
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <label for="inputEmail">Email</label>
+                     {/* <!-- E-mail --> */}
+                     <input type="email" id="defaultRegisterFormEmail" value={this.state.companies.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
                   </div>
-                  <div class="col">
-                        {/* <!-- Last name --> */}
-                        <input type="text" id="defaultRegisterFormLastName" value={this.state.newUser.lastName} onChange={this.handleChange} class="form-control" placeholder="Last name"/>
+
+                  <div class="form-group col-md-6">
+                     <label for="inputPassword">Password</label>
+                     {/* <!-- Password --> */}
+                     <input type="password" id="defaultRegisterFormPassword" value={this.state.companies.password} onChange={this.handleChange} class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
+                     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                        At least 8 characters and 1 digit
+                     </small>
                   </div>
                </div>
 
-               {/* <!-- E-mail --> */}
-               <input type="email" id="defaultRegisterFormEmail" value={this.state.newUser.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
+                  <div class="form-group">
+                     <label for="inputCompany">Company Name</label>
+                     {/* <!-- Company name --> */}
+                     <input type="text" id="defaultRegisterFormFirstName" value={this.state.companies.companyName} onChange={this.handleChange} class="form-control" placeholder="Company name"/>
+                  </div>
 
-               {/* <!-- Password --> */}
-               <input type="password" id="defaultRegisterFormPassword" value={this.state.newUser.password} onChange={this.handleChange} class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
-               <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                  At least 8 characters and 1 digit
-               </small>
+                  <div class="form-group">
+                     <label for="inputCountry">Country</label>
+                     {/* <!-- Country --> */}
+                     <input type="text" id="defaultRegisterFormLastName" value={this.state.companies.country} onChange={this.handleChange} class="form-control" placeholder="Country"/>
+                  </div>
+                     
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        {/* <!-- City --> */}
+                        <input type="text" id="defaultRegisterFormLastName" value={this.state.companies.city} onChange={this.handleChange} class="form-control" placeholder="City"/>
+                     </div>
 
-               {/* <!-- Phone number --> */}
-               <input type="text" id="defaultRegisterPhonePassword" value={this.state.newUser.phone} onChange={this.handleChange} class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock"/>
-               <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                  Optional - for two step authentication
-               </small>
+                     <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        {/* <!-- State --> */}
+                        <input type="text" id="defaultRegisterFormLastName" value={this.state.companies.state} onChange={this.handleChange} class="form-control" placeholder="State"/>
+                     </div>
 
-               {/* <!-- Newsletter --> */}
-               <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter"/>
-                  <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+                     <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        {/* <!-- Zip Code --> */}
+                        <input type="text" id="defaultRegisterFormLastName" value={this.state.companies.zipcode} onChange={this.handleChange} class="form-control" placeholder="Zip code"/>
+                     </div>
                </div>
 
                {/* <!-- Sign up button --> */}
@@ -115,6 +147,4 @@ const mapStateToProps = state => {
    };
 };
 
-// export default connect( mapStateToProps, { register })(Register);
-
-export default (CompanySignUp);
+export default connect( mapStateToProps, { companysignup })(CompanySignUp);
