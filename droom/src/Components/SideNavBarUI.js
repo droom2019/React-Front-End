@@ -8,10 +8,22 @@ class SideNavBarUI extends React.Component {
 
     render() {
     return (
-    <div className="sideNavContainer">
-        <h1>Side Nav Bar Container</h1>
-    </div>
-    );
+        <div className="sideNavContainer">
+            <div>
+                <NavLink to="/profile/" activeClassName="activeNav">Profile</NavLink>
+            </div>
+            <div>
+                <NavLink to="/matches/" activeClassName="activeNav">Matches</NavLink>
+            </div>
+            <div>
+                <NavLink to="/messages/" activeClassName="activeNav">Messages</NavLink>
+            </div>
+            <MDBDropdownItem divider />
+            <div>
+                <NavLink to="/signout/" activeClassName="activeNav">Sign Out</NavLink>
+            </div>
+        </div>
+        );
     }
 };
 

@@ -11,7 +11,7 @@ class MatchesMasterContainer extends React.Component {
     render() {
         
         return (
-            <div className="matchesContainer">
+            <div className="matchesMasterContainer">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="matches-tab" data-toggle="tab" href="#matches" role="tab" aria-controls="matches"

@@ -12,7 +12,6 @@ class UserDisplayContainer extends React.Component {
           <h1>Container for user photo display</h1>
           <img
             className="demoProfilePics"
-            height="300"
             src={profileDemoPicture}
             alt="demoProfilePicture"
         />

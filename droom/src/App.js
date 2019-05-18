@@ -16,6 +16,9 @@ import Login from './components/Login';
 import Team from './components/Team';
 import CompanyView from './components/CompanyView';
 import JobSeekerView from './components/JobSeekerView';
+import Messages from './components/Messages';
+import Matches from './components/Matches';
+
 
 
 function App() {
@@ -31,6 +34,8 @@ function App() {
         <Route path="/team" component={Team} />
         <Route path="/companyview" component={CompanyView} />
         <Route path="/jobseekerview" component={JobSeekerView} />
+        <Route path="/messages" component={Messages} />
+        <Route path="/matches" component={Matches} />
     </div>
     );
   }
