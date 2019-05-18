@@ -4,7 +4,7 @@ import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from
 import droom from '../assets/images/droom.png';
 
 import MatchesMasterContainer from './MatchesMasterContainer';
-import UserDisplayContainer from './UserDisplayContainer';
+import UserDisplayJobSeekerContainer from './UserDisplayJobSeekerContainer';
 import SideNavBarUI from './SideNavBarUI';
 
 
@@ -16,7 +16,7 @@ class JobSeekerView extends React.Component {
             <h1>Job Seeker View</h1>
             <div className="jobseekerUIcontainer">
                 <MatchesMasterContainer />
-                <UserDisplayContainer />
+                <UserDisplayJobSeekerContainer />
                 <SideNavBarUI />
             </div>
         </div>
