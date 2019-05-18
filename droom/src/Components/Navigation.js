@@ -21,7 +21,8 @@ class Navigation extends React.Component {
           <div>
             <NavLink to="/about/" activeClassName="activeNav">About</NavLink>
           </div>
-          <div>
+
+          {/* <div>
             <MDBDropdown className="registerButton">
               <MDBDropdownToggle caret color="primary">
                 REGISTER
@@ -32,12 +33,22 @@ class Navigation extends React.Component {
                 <MDBDropdownItem><NavLink to="/jobseekersignup/" activeClassName="activeNav" class="dropdown-item" >Job Seeker</NavLink></MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>
-            </div>
+            </div> */}
+          <div>
+            <NavLink to="/register/" activeClassName="activeNav">Register</NavLink>
+          </div>
+
           <div>
             <NavLink to="/login/" activeClassName="activeNav">Login</NavLink>
           </div>
           <div>
             <NavLink to="/team/" activeClassName="activeNav">Team</NavLink>
+          </div>
+          <div>
+            <NavLink to="/jobseekerview/" activeClassName="activeNav">Job Seeker View</NavLink>
+          </div>
+          <div>
+            <NavLink to="/companyview/" activeClassName="activeNav">Company View</NavLink>
           </div>
           </nav>
         </div>

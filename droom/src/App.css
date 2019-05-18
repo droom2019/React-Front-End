@@ -167,9 +167,20 @@ a:hover {
   text-decoration: none;
 }
 
-.registerButton {
-  background-color:  rgb(95, 95, 95);
+.dropdown.show.registerButton {
+  background-color: transparent;
+  border-color: transparent;
   color: black;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-primary.dropdown-toggle {
@@ -192,3 +203,31 @@ a:hover {
   font-size: 20px;
   color: white;
 }
+
+.jobseekerUIcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.matchesContainer {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+  border: 1px solid white;
+}
+
+.userDisplayContainer {
+  border: 1px solid white;
+}
+
+.userDisplayContainer img {
+}
+
+.sideNavContainer {
+border: 1px solid white;
+}
+
+.messagesContainer {
+  color: black;
+  }

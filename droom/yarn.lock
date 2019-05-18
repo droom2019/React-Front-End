@@ -1213,7 +1213,7 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.18.tgz#c0d8f073a5116b2de0a2c8a7aba66093a6956ce7"
   integrity sha512-834DrzO2Ne3upCW+mJJPC/E6BsFcj+2Z1HmPIhbpbj8UaKmXWum4NClqLpUiMetugRlHuG4jbIHNdv2/lc3c1Q==
 
-"@fortawesome/fontawesome-free@^5.7.1":
+"@fortawesome/fontawesome-free@^5.8.1":
   version "5.8.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.8.2.tgz#fae4112c4fb47086f6ae167e32524b280000abd5"
   integrity sha512-E4fDUF4fbu9AxKpaQQqCN3XBnNzb/5e0Gvd9OaQsYkK574LVI57v/EqqPfIm/mC7jYbxaPNrhvT5AF+Yzwyizg==
@@ -6813,13 +6813,13 @@ mdbootstrap@^4.8.0:
   dependencies:
     "@babel/core" "^7.3.3"
 
-mdbreact@^4.13.0:
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/mdbreact/-/mdbreact-4.13.0.tgz#832306980302d25924c63f72e2631cc0f4fe5b59"
-  integrity sha512-2cU7F8EI/EwhMeluYsYJ72lvEsFSp79VdQw36WK/wmC8h4Lv354sz/PBOEi05/3QwEITQ7HcY6TTPS/0EeN4vQ==
+mdbreact@^4.14.0:
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/mdbreact/-/mdbreact-4.14.0.tgz#83cafc78328f55018bcaff7836cade00c5244a77"
+  integrity sha512-hzufpGPMmjSBdZOlXCUbi56aV6wNdak5WgTIJ1KA0Az87Tpq75PNWnTdU6Ds5wMTPFJKgaqnMc3oHFaTxqlC/w==
   dependencies:
     "@date-io/moment" "0.0.2"
-    "@fortawesome/fontawesome-free" "^5.7.1"
+    "@fortawesome/fontawesome-free" "^5.8.1"
     "@material-ui/core" "^3.9.2"
     bootstrap-css-only "^4.3.1"
     chart.js "^2.7.3"

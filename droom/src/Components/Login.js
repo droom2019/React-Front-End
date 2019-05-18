@@ -26,7 +26,7 @@ class Login extends React.Component {
     console.log("pushed login");
 
     this.props.login(this.state.credentials)
-      .then(() => this.props.history.push("https://droom-buildweek-4-15-19.herokuapp.com/api/auth/login")
+      .then(() => this.props.history.push("/login")
       );
   };
 

@@ -14,6 +14,8 @@ import CompanySignUp from './components/CompanySignUp';
 import JobSeekerSignUp from './components/JobSeekerSignUp';
 import Login from './components/Login';
 import Team from './components/Team';
+import CompanyView from './components/CompanyView';
+import JobSeekerView from './components/JobSeekerView';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path="/jobseekersignup" component={JobSeekerSignUp} />
         <Route path="/login" component={Login} />
         <Route path="/team" component={Team} />
+        <Route path="/companyview" component={CompanyView} />
+        <Route path="/jobseekerview" component={JobSeekerView} />
     </div>
     );
   }

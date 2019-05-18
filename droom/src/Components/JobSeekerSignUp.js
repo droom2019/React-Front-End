@@ -37,8 +37,8 @@ class JobSeekerSignUp extends React.Component {
    handleSubmit = e => {
       e.preventDefault()
 
-      this.props.register(this.state.newUser)
-      .then(res => (res === false) ? null : this.props.history.push("https://droom-buildweek-4-15-19.herokuapp.com/api/seekers")      
+      this.props.register(this.state.seekers)
+      .then(res => (res === false) ? null : this.props.history.push("https://droom-api.herokuapp.com/api/seekers")      
       );
    };
 
@@ -100,32 +100,10 @@ class JobSeekerSignUp extends React.Component {
                         {/* <!-- Zip Code --> */}
                         <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.zipcode} onChange={this.handleChange} class="form-control" placeholder="Zip code"/>
                      </div>
-               </div>
+                  </div>
 
                {/* <!-- Sign up button --> */}
                <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
-
-               {/* <!-- Social register --> */}
-               <p>or sign up with:</p>
-
-               <a type="button" class="light-blue-text mx-2">
-                  <i class="fab fa-facebook-f"></i>
-               </a>
-               <a type="button" class="light-blue-text mx-2">
-                  <i class="fab fa-twitter"></i>
-               </a>
-               <a type="button" class="light-blue-text mx-2">
-                  <i class="fab fa-linkedin-in"></i>
-               </a>
-               <a type="button" class="light-blue-text mx-2">
-                  <i class="fab fa-github"></i>
-               </a>
-
-               {/* <!-- Terms of service --> */}
-               <p>By clicking
-                  <em>Sign up</em> you agree to our
-                  <a href="" target="_blank">terms of service</a>
-                  </p>
             </form>
             {/* <!-- Default form register --> */}
          </div>
