@@ -1,4 +1,5 @@
 import axiosWithAuth from '../Helper';
+import axios from 'axios';
 
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -8,7 +9,7 @@ export const register = newUser => dispatch => {
    dispatch({type: REGISTER_START});
    console.log(newUser);  
 
-   return axiosWithAuth().post('https://droom-api.herokuapp.com/api/auth/register', newUser)
+   return axios.post('https://droom-api.herokuapp.com/api/auth/register', newUser)
    .then(res => {
       console.log(res)
       dispatch({type: REGISTER_SUCCESS});
@@ -59,11 +60,11 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const login = credentials => dispatch => {
    dispatch({type: LOGIN_START});
 
-   return axiosWithAuth().post('https://droom-api.herokuapp.com/auth/user/login', credentials)
+   return axiosWithAuth().post('https://droom-api.herokuapp.com/api/auth/login', credentials)
       .then(res => {
          localStorage.setItem('token', res.data.token);
          console.log(res)
-         dispatch({type: LOGIN_SUCCESS, payload: res.data.id});
+         dispatch({type: LOGIN_SUCCESS, payload:res.data.token});
       })
       .catch(err => {
          console.log("login error:", err);

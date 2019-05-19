@@ -13,11 +13,11 @@ class Register extends React.Component {
 
    handleChange = e => {
       e.preventDefault();
-
+      console.log("change")
       this.setState({
          newUser: {
             ...this.state.newUser,
-            [e.target.name]: e.target.type === 'number' ? parseInt(e.target.value) : e.target.value
+            [e.target.name]: e.target.value
          }
       });
    };
@@ -41,10 +41,10 @@ class Register extends React.Component {
                <p class="h4 mb-4">Sign up</p>
 
                {/* <!-- E-mail --> */}
-               <input type="email" id="defaultRegisterFormEmail" defaultValue={this.state.newUser.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
+               <input type="email" name="email" id="defaultRegisterFormEmail" value={this.state.newUser.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
 
                {/* <!-- Password --> */}
-               <input type="password" id="defaultRegisterFormPassword" defaultValue={this.state.newUser.password} onChange={this.handleChange} class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
+               <input type="password" name="password" id="defaultRegisterFormPassword" value={this.state.newUser.password} onChange={this.handleChange} class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                   At least 8 characters and 1 digit
                </small>

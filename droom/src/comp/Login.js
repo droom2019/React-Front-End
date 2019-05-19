@@ -7,7 +7,7 @@ import { Label, Input, LoginButton, Form } from '../StyledComponents';
 class Login extends React.Component {
   state = {
     credentials: {
-      username: "",
+      email: "",
       password: ""
     }
   };
@@ -40,15 +40,17 @@ class Login extends React.Component {
 
           <input 
           type="email" 
+          name="email" 
           id="defaultLoginFormEmail" 
           class="form-control mb-4" 
-          defaultValue={this.state.credentials.username}
+          defaultValue={this.state.credentials.email}
           onChange={this.handleChange}
           placeholder="E-mail"
           />
 
           <input 
-          type="password" 
+          type="password"
+          name="password" 
           id="defaultLoginFormPassword" 
           class="form-control mb-4" 
           defaultValue={this.state.credentials.password}

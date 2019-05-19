@@ -5,19 +5,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import { Route } from 'react-router-dom';
-import PrivateRoute from './components/PrivateRoute';
-import Navigation from './components/Navigation';
-import Home from './components/Home';
-import About from './components/About';
-import Register from './components/Register';
-import CompanySignUp from './components/CompanySignUp';
-import JobSeekerSignUp from './components/JobSeekerSignUp';
-import Login from './components/Login';
-import Team from './components/Team';
-import CompanyView from './components/CompanyView';
-import JobSeekerView from './components/JobSeekerView';
-import Messages from './components/Messages';
-import Matches from './components/Matches';
+import PrivateRoute from './Comp/PrivateRoute';
+import Navigation from './Comp/Navigation';
+import Home from './Comp/Home';
+import About from './Comp/About';
+import Register from './Comp/Register';
+import CompanySignUp from './Comp/CompanySignUp';
+import JobSeekerSignUp from './Comp/JobSeekerSignUp';
+import Login from './Comp/Login';
+import Team from './Comp/Team';
+import CompanyView from './Comp/CompanyView';
+import JobSeekerView from './Comp/JobSeekerView';
+import Messages from './Comp/Messages';
+import Matches from './Comp/Matches';
 
 
 
