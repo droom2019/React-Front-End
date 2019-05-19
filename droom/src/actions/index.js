@@ -1,5 +1,8 @@
 import axiosWithAuth from '../Helper';
 import axios from 'axios';
+import { CardActions } from '@material-ui/core';
+
+// REGISTRATION ACTIONS
 
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -15,43 +18,13 @@ export const register = newUser => dispatch => {
       dispatch({type: REGISTER_SUCCESS});
    })
    .catch(err => {
-      console.log("login error:", err);
+      console.log("register error:", err);
       dispatch({ type: REGISTER_FAILURE });
       return false
       })
 }
 
-export const companysignup = companies => dispatch => {
-   dispatch({type: REGISTER_START});
-   console.log(companies);  
-
-   return axiosWithAuth().post('https://droom-api.herokuapp.com/api/companies', companies)
-   .then(res => {
-      console.log(res)
-      dispatch({type: REGISTER_SUCCESS});
-   })
-   .catch(err => {
-      console.log("login error:", err);
-      dispatch({ type: REGISTER_FAILURE });
-      return false
-      })
-}
-
-export const jobseekersignup = seekers => dispatch => {
-   dispatch({type: REGISTER_START});
-   console.log(seekers);  
-
-   return axiosWithAuth().post('https://droom-api.herokuapp.com/api/seekers', seekers)
-   .then(res => {
-      console.log(res)
-      dispatch({type: REGISTER_SUCCESS});
-   })
-   .catch(err => {
-      console.log("login error:", err);
-      dispatch({ type: REGISTER_FAILURE });
-      return false
-      })
-}
+// LOGIN ACTIONS
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -74,6 +47,49 @@ export const login = credentials => dispatch => {
       dispatch({ type: LOGIN_FAILURE });
       })
 }
+
+// COMPANY SIGN UP ACTIONS
+
+export const SIGNUP_START = "SIGNUP_START";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_FAILURE = "SIGNUP_FAILURE";
+
+
+export const companysignup = companies => dispatch => {
+   dispatch({type: SIGNUP_START});
+   console.log(companies);  
+
+   return axiosWithAuth().post('https://droom-api.herokuapp.com/api/companies', companies)
+   .then(res => {
+      console.log(res)
+      dispatch({type: SIGNUP_SUCCESS});
+   })
+   .catch(err => {
+      console.log("login error:", err);
+      dispatch({ type: SIGNUP_FAILURE });
+      return false
+      })
+}
+
+// JOBSEEKER SIGN UP ACTIONS
+
+export const jobseekersignup = seekers => dispatch => {
+   dispatch({type: SIGNUP_START});
+   console.log(seekers);  
+
+   return axiosWithAuth().post('https://droom-api.herokuapp.com/api/seekers', seekers)
+   .then(res => {
+      console.log(res)
+      dispatch({type: SIGNUP_SUCCESS});
+   })
+   .catch(err => {
+      console.log("login error:", err);
+      dispatch({ type: SIGNUP_FAILURE });
+      return false
+      })
+}
+
+
 
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";

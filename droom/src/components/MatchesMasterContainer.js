@@ -12,27 +12,25 @@ class MatchesMasterContainer extends React.Component {
         
         return (
             <div className="matchesMasterContainer">
-                <ul class="nav nav-tabs" id="myTab" >
+                <ul class="nav nav-tabs">
 
                     <li class="nav-item">
-                        <a class="nav-link active" id="matches-tab" data-toggle="tab" href="#matches" role="tab" aria-controls="messages"
-                        aria-selected="false">Matches</a>
+                        <a class="nav-link active" id="matches-tab" data-toggle="tab" href="#matches" >Matches</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages"
-                        aria-selected="false">Messages</a>
+                        <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages">Messages</a>
                     </li>
                 </ul>
                 
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="matches" role="tabpanel" aria-labelledby="matches-tab">
-                            <Route path="/matches" component={Matches} />
+                    <div class="tab-content">
+                        <div class="container tab-pane active" id="matches">
+                            <Route to="/#matches" path="/matches" component={Matches} />
                             <Matches />
                         </div>
 
-                        <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            <Route path="/messages" component={Messages} />
+                        <div class="container tab-pane fade" id="messages">
+                            <Route to="/#messages" path="/messages" component={Messages} />
                             <Messages />
                         </div>
                     </div>

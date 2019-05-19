@@ -26,7 +26,7 @@ class Login extends React.Component {
     console.log("pushed login");
 
     this.props.login(this.state.credentials)
-      .then(() => this.props.history.push("/login")
+      .then(() => this.props.history.push("/account")
       );
   };
 

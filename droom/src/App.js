@@ -13,6 +13,7 @@ import Register from './components/Register';
 import CompanySignUp from './components/CompanySignUp';
 import JobSeekerSignUp from './components/JobSeekerSignUp';
 import Login from './components/Login';
+import Account from './components/Account';
 import Team from './components/Team';
 import CompanyView from './components/CompanyView';
 import JobSeekerView from './components/JobSeekerView';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/companysignup" component={CompanySignUp} />
         <Route path="/jobseekersignup" component={JobSeekerSignUp} />
         <Route path="/login" component={Login} />
+        <Route path="/account" component={Account} />
         <Route path="/team" component={Team} />
         <Route path="/companyview" component={CompanyView} />
         <Route path="/jobseekerview" component={JobSeekerView} />

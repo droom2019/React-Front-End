@@ -29,7 +29,7 @@ class JobSeekerSignUp extends React.Component {
       this.setState({
          seekers: {
             ...this.state.seekers,
-            [e.target.name]: e.target.type === 'number' ? parseInt(e.target.value) : e.target.value
+            [e.target.name]: e.target.type
          }
       });
    };
@@ -49,7 +49,7 @@ class JobSeekerSignUp extends React.Component {
          <div className="registerContainer">
             {/* <!-- Default form register --> */}
             <form onSubmit={this.handleSubmit} class="text-center border border-light p-5">
-               {this.props.registerError && <p>Error on sign up, try again</p>}
+               {this.props.signUpError && <p>Error on sign up, try again</p>}
                
                <p class="h4 mb-4">Job Seeker Sign Up</p>
 
@@ -103,7 +103,7 @@ class JobSeekerSignUp extends React.Component {
                   </div>
 
                {/* <!-- Sign up button --> */}
-               <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+               <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
             </form>
             {/* <!-- Default form register --> */}
          </div>
@@ -113,7 +113,7 @@ class JobSeekerSignUp extends React.Component {
 
 const mapStateToProps = state => {
    return {
-      registerError: state.registerError
+      signUpError: state.signUpError
    };
 };
 

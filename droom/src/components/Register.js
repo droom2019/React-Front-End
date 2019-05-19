@@ -26,7 +26,7 @@ class Register extends React.Component {
       e.preventDefault()
 
       this.props.register(this.state.newUser)
-      .then(res => (res === false) ? null : this.props.history.push("/register")      
+      .then(res => (res === false) ? null : this.props.history.push("/login")      
       );
    };
 
@@ -36,9 +36,9 @@ class Register extends React.Component {
          <div className="registerContainer">
             {/* <!-- Default form register --> */}
             <form onSubmit={this.handleSubmit} class="text-center border border-light p-5">
-               {this.props.registerError && <p>Error on sign up, try again</p>}
+               {this.props.registerError && <p>You are already registered. Please login.</p>}
                
-               <p class="h4 mb-4">Sign up</p>
+               <p class="h4 mb-4">Register</p>
 
                {/* <!-- E-mail --> */}
                <input type="email" name="email" id="defaultRegisterFormEmail" value={this.state.newUser.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
@@ -50,7 +50,7 @@ class Register extends React.Component {
                </small>
 
                {/* <!-- Sign up button --> */}
-               <button class="btn btn-info my-4 btn-block" type="submit">Sign Up</button>
+               <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
 
             </form>
             {/* <!-- Default form register --> */}

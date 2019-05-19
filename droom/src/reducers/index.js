@@ -1,6 +1,7 @@
 import {
    LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE,
    REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE,
+   SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAILURE,
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
 } from '../actions';
 
@@ -12,6 +13,8 @@ const initialState = {
    loginError: null,
    registering: false,
    registerError: null,
+   signingUp: false,
+   signUpError: null,
    error: ''
 }
 
@@ -55,7 +58,27 @@ export default (state = initialState, action) => {
          return {
             ...state,
             registering: false,
-            registerError: "failed sign up"
+            registerError: "failed to register"
+         }
+      }
+      case SIGNUP_START: {
+         return {
+            ...state,
+            signingUp: true,
+            signUpError: null,
+         }
+      }
+      case SIGNUP_SUCCESS: {
+         return {
+            ...state,
+            signingUp: false
+         }
+      }
+      case SIGNUP_FAILURE: {
+         return {
+            ...state,
+            signingUp: false,
+            signUpError: "failed to sign up"
          }
       }
       case FETCH_START: {
