@@ -5,7 +5,7 @@ import droom from '../assets/images/droom.png';
 
 import MatchesMasterContainer from './MatchesMasterContainer';
 import UserDisplayJobSeekerContainer from './UserDisplayJobSeekerContainer';
-import SideNavBarUI from './SideNavBarUI';
+import SideNavBarUIJobSeeker from './SideNavBarUIJobSeeker';
 
 
 class JobSeekerView extends React.Component {
@@ -17,7 +17,7 @@ class JobSeekerView extends React.Component {
             <div className="jobseekerUIcontainer">
                 <MatchesMasterContainer />
                 <UserDisplayJobSeekerContainer />
-                <SideNavBarUI />
+                <SideNavBarUIJobSeeker />
             </div>
         </div>
     );

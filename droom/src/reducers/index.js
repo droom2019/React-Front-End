@@ -2,7 +2,14 @@ import {
    LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE,
    REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE,
    SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAILURE,
+
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
+
+   FETCH_COMPANY_START, FETCH_COMPANY_SUCCESS, FETCH_COMPANY_FAILURE,
+   // FETCH_COMPANY_BY_ID_START, FETCH_COMPANY_BY_ID_SUCCESS, FETCH_COMPANY_BY_ID_FAILURE,
+
+   FETCH_SEEKER_START, FETCH_SEEKER_SUCCESS, FETCH_SEEKER_FAILURE,
+   // FETCH_SEEKER_BY_ID_START, FETCH_SEEKER_BY_ID_SUCCESS, FETCH_SEEKER_BY_ID_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -15,6 +22,10 @@ const initialState = {
    registerError: null,
    signingUp: false,
    signUpError: null,
+   fetchingCompany: false,
+   fetchingSeeker: false,
+   companies:[],
+   seekers: [],
    error: ''
 }
 
@@ -81,6 +92,7 @@ export default (state = initialState, action) => {
             signUpError: "failed to sign up"
          }
       }
+
       case FETCH_START: {
          return {
             ...state,
@@ -102,6 +114,49 @@ export default (state = initialState, action) => {
             error: action.payload
          }
       }
+
+      case FETCH_COMPANY_START: {
+         return {
+            ...state,
+            fetchingCompanies: true
+         }
+      }
+      case FETCH_COMPANY_SUCCESS: {
+         return {
+            ...state,
+            fetchingCompanies: false,
+            companies: action.payload,
+         }
+      }
+      case FETCH_COMPANY_FAILURE: {
+         return {
+            ...state,
+            fetchingCompanies: false,
+            error: action.payload
+         }
+      }
+
+      case FETCH_SEEKER_START: {
+         return {
+            ...state,
+            fetchingSeeker: true
+         }
+      }
+      case FETCH_SEEKER_SUCCESS: {
+         return {
+            ...state,
+            fetchingSeeker: false,
+            seekers: action.payload,
+         }
+      }
+      case FETCH_SEEKER_FAILURE: {
+         return {
+            ...state,
+            fetchingSeeker: false,
+            error: action.payload
+         }
+      }
+
       default: 
       return state;
    }

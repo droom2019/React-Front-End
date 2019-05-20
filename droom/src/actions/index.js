@@ -89,8 +89,6 @@ export const jobseekersignup = seekers => dispatch => {
       })
 }
 
-
-
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
@@ -107,4 +105,55 @@ export const getUser = id => dispatch => {
       .catch(err => {
          dispatch({type: FETCH_FAILURE, payload: err})
       })
+}
+
+export const FETCH_COMPANY_START = "FETCH_START";
+export const FETCH_COMPANY_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_COMPANY_FAILURE = "FETCH_FAILURE";
+
+export const getCompany = () => dispatch => {
+   dispatch({type: FETCH_COMPANY_START});
+   axios.get('https://droom-api.herokuapp.com/api/companies')
+     .then(res => {
+       console.log(res);
+       dispatch({type: FETCH_COMPANY_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       console.log(err);
+       dispatch({type: FETCH_COMPANY_FAILURE, payload: err})
+     })
+ }
+
+export const FETCH_COMPANY_BY_ID_START = "FETCH_START";
+export const  FETCH_COMPANY_BY_ID_SUCCESS = "FETCH_SUCCESS";
+export const  FETCH_COMPANY_BY_ID_FAILURE = "FETCH_FAILURE";
+
+ export const getCompanyById = id => dispatch => {
+   dispatch({type: FETCH_COMPANY_BY_ID_START});
+   axios.get(`https://droom-api.herokuapp.com/api/companies/:${id}`)
+     .then(res => {
+       console.log(res);
+       dispatch({type: FETCH_COMPANY_BY_ID_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       console.log(err);
+       dispatch({type: FETCH_COMPANY_BY_ID_FAILURE, payload: err})
+     })
+ }
+
+export const FETCH_SEEKER_START = "FETCH_START";
+export const FETCH_SEEKER_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_SEEKER_FAILURE = "FETCH_FAILURE";
+
+export const getSeeker = () => dispatch => {
+   dispatch({type: FETCH_SEEKER_START});
+   axios.get('https://droom-api.herokuapp.com/api/seekers')
+     .then(res => {
+       console.log(res);
+       dispatch({type: FETCH_SEEKER_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       console.log(err);
+       dispatch({type: FETCH_SEEKER_FAILURE, payload: err})
+     })
 }

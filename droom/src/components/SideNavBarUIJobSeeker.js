@@ -4,13 +4,13 @@ import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from
 import droom from '../assets/images/droom.png';
 
 
-class SideNavBarUI extends React.Component {
+class SideNavBarUIJobSeeker extends React.Component {
 
     render() {
     return (
         <div className="sideNavContainer">
             <div>
-                <NavLink to="/profile/" activeClassName="activeNav">Profile</NavLink>
+                <NavLink to="/jobseekerprofile/" activeClassName="activeNav">Profile</NavLink>
             </div>
             <div>
                 <NavLink to="/matches/" activeClassName="activeNav">Matches</NavLink>
@@ -27,4 +27,4 @@ class SideNavBarUI extends React.Component {
     }
 };
 
-export default SideNavBarUI;
+export default SideNavBarUIJobSeeker;

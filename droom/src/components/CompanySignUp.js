@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { companysignup } from '../actions';
-import { Label, Input, LoginButton, Form } from '../StyledComponents';
 
 class CompanySignUp extends React.Component {
    state = {
@@ -19,7 +18,7 @@ class CompanySignUp extends React.Component {
 
    handleChange = e => {
       e.preventDefault();
-
+      console.log("change")
       this.setState({
          companies: {
             ...this.state.companies,
@@ -32,7 +31,7 @@ class CompanySignUp extends React.Component {
       e.preventDefault()
 
       this.props.companysignup(this.state.companies)
-      .then(res => (res === false) ? null : this.props.history.push("https://droom-api.herokuapp.com/api/companies")      
+      .then(res => (res === false) ? null : this.props.history.push("/companyprofile")      
       );
    };
 
@@ -46,42 +45,46 @@ class CompanySignUp extends React.Component {
                
                <p class="h4 mb-4">Company Sign Up</p>
 
-                  <div class="form-group">
-                     <label for="inputCompany">Company Name</label>
-                     {/* <!-- Company name --> */}
-                     <input 
-                     type="companyName" 
-                     name="companyName" 
-                     id="defaultRegisterFormFirstName" 
-                     value={this.state.companies.companyName} 
-                     onChange={this.handleChange} 
-                     class="form-control" 
-                     placeholder="Company name"
-                     />
-                  </div>
+               <label>Company Name</label>
+               {/* <!-- Company name --> */}
+               <input 
+               type="companyName" 
+               name="companyName" 
+               value={this.state.companies.companyName} 
+               onChange={this.handleChange} 
+               class="form-control mb-4" 
+               placeholder="Company name"
+               />
 
-                  <div class="form-group">
-                     <label for="inputCountry">Country</label>
-                     {/* <!-- Country --> */}
-                     <input 
-                     type="country" 
-                     name="country" 
-                     id="defaultRegisterFormLastName" 
-                     value={this.state.companies.country} 
-                     onChange={this.handleChange} 
-                     class="form-control" 
-                     placeholder="Country"
-                     />
-                  </div>
-                     
+               <label>Company Description</label>
+               {/* <!-- Company Description --> */}
+               <textarea 
+               class="form-control rounded-0" 
+               rows="3"
+               type="companyDescription" 
+               name="companyDescription" 
+               value={this.state.companies.companyDescription} 
+               onChange={this.handleChange} 
+               placeholder="Company Description"
+               />
+
+               <div class="form-group">
+                  <label>Country</label>
+                  {/* <!-- Country --> */}
+                  <input  
+                  name="country" 
+                  value={this.state.companies.country} 
+                  onChange={this.handleChange} 
+                  class="form-control" 
+                  placeholder="Country"
+                  />
+                  
                   <div class="form-row">
                      <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
+                        <label>City</label>
                         {/* <!-- City --> */}
                         <input 
-                        type="city" 
                         name="city" 
-                        id="defaultRegisterFormLastName" 
                         value={this.state.companies.city} 
                         onChange={this.handleChange} 
                         class="form-control" 
@@ -90,12 +93,10 @@ class CompanySignUp extends React.Component {
                      </div>
 
                      <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
+                        <label>State</label>
                         {/* <!-- State --> */}
                         <input 
-                        type="state" 
                         name="state" 
-                        id="defaultRegisterFormLastName" 
                         value={this.state.companies.state} 
                         onChange={this.handleChange} 
                         class="form-control" 
@@ -104,18 +105,17 @@ class CompanySignUp extends React.Component {
                      </div>
 
                      <div class="form-group col-md-2">
-                        <label for="inputZip">Zip</label>
+                        <label>Zip</label>
                         {/* <!-- Zip Code --> */}
                         <input 
-                        type="zipcode" 
                         name="zipcode" 
-                        id="defaultRegisterFormLastName" 
                         value={this.state.companies.zipcode} 
                         onChange={this.handleChange} 
                         class="form-control" 
                         placeholder="Zip code"
                         />
                      </div>
+                  </div>
                </div>
 
                {/* <!-- Sign up button --> */}

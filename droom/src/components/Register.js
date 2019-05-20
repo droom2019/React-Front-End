@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { register } from '../actions';
-import { Label, Input, LoginButton, Form } from '../StyledComponents';
 
 class Register extends React.Component {
    state = {
@@ -40,9 +39,11 @@ class Register extends React.Component {
                
                <p class="h4 mb-4">Register</p>
 
+               <label>E-mail</label>
                {/* <!-- E-mail --> */}
                <input type="email" name="email" id="defaultRegisterFormEmail" value={this.state.newUser.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
 
+               <label>Password</label>
                {/* <!-- Password --> */}
                <input type="password" name="password" id="defaultRegisterFormPassword" value={this.state.newUser.password} onChange={this.handleChange} class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">

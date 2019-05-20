@@ -38,6 +38,7 @@ class Login extends React.Component {
         {this.props.loginError && <p>Error on login, try again</p>}
           <p class="h4 mb-4 text-center">Sign in</p>
 
+          <label for="inputCompany">E-mail</label>
           <input 
           type="email" 
           name="email" 
@@ -48,6 +49,7 @@ class Login extends React.Component {
           placeholder="E-mail"
           />
 
+          <label for="inputCompany">Password</label>
           <input 
           type="password"
           name="password" 

@@ -15,6 +15,8 @@ import JobSeekerSignUp from './components/JobSeekerSignUp';
 import Login from './components/Login';
 import Account from './components/Account';
 import Team from './components/Team';
+import CompanyProfile from './components/CompanyProfile';
+import JobSeekerProfile from './components/JobSeekerProfile';
 import CompanyView from './components/CompanyView';
 import JobSeekerView from './components/JobSeekerView';
 import Messages from './components/Messages';
@@ -34,6 +36,8 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/account" component={Account} />
         <Route path="/team" component={Team} />
+        <Route path="/companyprofile" component={CompanyProfile} />
+        <Route path="/jobseekerprofile" component={JobSeekerProfile} />
         <Route path="/companyview" component={CompanyView} />
         <Route path="/jobseekerview" component={JobSeekerView} />
         <Route path="/messages" component={Messages} />

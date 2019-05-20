@@ -5,22 +5,19 @@ import { Label, Input, LoginButton, Form } from '../StyledComponents';
 
 class JobSeekerSignUp extends React.Component {
    state = {
-      seekers: [
-         {  userId: "",
-            firstName: "John",
-            lastName: "Dough",
-            profilePicture:"",
-            month:"2",
-            day:"4",
-            year:"1994",
-            country:"US",
-            state:"California",
-            city: "San Francisco",
-            zipcode:"93552",
-            email: "",
-            password: ""
-         }
-      ]
+      userId: "",
+      seekers: {
+         firstName: "",
+         lastName: "",
+         profilePicture:"",
+         month:"",
+         day:"",
+         year:"",
+         country:"",
+         state:"",
+         city: "",
+         zipcode:""
+      }
    };
 
    handleChange = e => {
@@ -37,8 +34,8 @@ class JobSeekerSignUp extends React.Component {
    handleSubmit = e => {
       e.preventDefault()
 
-      this.props.register(this.state.seekers)
-      .then(res => (res === false) ? null : this.props.history.push("https://droom-api.herokuapp.com/api/seekers")      
+      this.props.jobseekersignup(this.state.seekers)
+      .then(res => (res === false) ? null : this.props.history.push("/jobseekerprofile")      
       );
    };
 
@@ -55,50 +52,124 @@ class JobSeekerSignUp extends React.Component {
 
                <div class="form-row">
                   <div class="form-group col-md-6">
-                     <label for="inputEmail">Email</label>
-                     {/* <!-- E-mail --> */}
-                     <input type="email" id="defaultRegisterFormEmail" value={this.state.seekers.email} onChange={this.handleChange} class="form-control mb-4" placeholder="E-mail"/>
+                     <label>First name</label>
+                     {/* <!-- First name--> */}
+                     <input 
+                     type="firstName" 
+                     name="firstName" 
+                     value={this.state.seekers.firstName} 
+                     onChange={this.handleChange} 
+                     class="form-control mb-4" 
+                     placeholder="First Name"/>
                   </div>
 
                   <div class="form-group col-md-6">
-                     <label for="inputPassword">Password</label>
+                     <label>Last name</label>
                      {/* <!-- Password --> */}
-                     <input type="password" id="defaultRegisterFormPassword" value={this.state.seekers.password} onChange={this.handleChange} class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"/>
-                     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                        At least 8 characters and 1 digit
-                     </small>
+                     <input 
+                     type="lastName" 
+                     name="lastName" 
+                     value={this.state.seekers.lastName} 
+                     onChange={this.handleChange} 
+                     class="form-control" 
+                     placeholder="Last Name" 
+                     />
                   </div>
                </div>
 
                   {/* <!-- DOB --> */}
-                  <div class="md-form">
-                     <label for="date-picker-example">Date of Birth</label>
-                     <input placeholder="Select date" type="text" id="date-picker-example" class="form-control datepicker"/>
+                  <label>Date of Birth</label>
+                  
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+                        <label>Month</label>
+                        <input 
+                        type="text" 
+                        name="month"
+                        value={this.state.seekers.month} 
+                        onChange={this.handleChange} 
+                        class="form-control" 
+                        placeholder="Month"
+                        />
+                     </div>
+                     
+                     <div class="form-group col-md-2">
+                     <label>Day</label>
+                        <input 
+                        type="day" 
+                        name="day"
+                        value={this.state.seekers.day} 
+                        onChange={this.handleChange} 
+                        class="form-control" 
+                        placeholder="Day"
+                        />
+                     </div>
+
+                     <div class="form-group col-md-4">
+                     <label>Year</label>
+                        <input 
+                        type="year" 
+                        name="year"
+                        value={this.state.seekers.year} 
+                        onChange={this.handleChange} 
+                        class="form-control" 
+                        placeholder="Year"
+                        />
+                     </div>
                   </div>
 
+
                   <div class="form-group">
-                     <label for="inputCountry">Country</label>
+                     <label>Country</label>
                      {/* <!-- Country --> */}
-                     <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.country} onChange={this.handleChange} class="form-control" placeholder="Country"/>
+                     <input 
+                     type="country" 
+                     name="country"
+                     value={this.state.seekers.country} 
+                     onChange={this.handleChange} 
+                     class="form-control" 
+                     placeholder="Country"
+                     />
                   </div>
                      
                   <div class="form-row">
                      <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
+                        <label>City</label>
                         {/* <!-- City --> */}
-                        <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.city} onChange={this.handleChange} class="form-control" placeholder="City"/>
+                        <input 
+                        type="city"
+                        name="city"
+                        value={this.state.seekers.city} 
+                        onChange={this.handleChange} 
+                        class="form-control" 
+                        placeholder="City"
+                        />
                      </div>
 
                      <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
+                        <label>State</label>
                         {/* <!-- State --> */}
-                        <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.state} onChange={this.handleChange} class="form-control" placeholder="State"/>
+                        <input 
+                        type="state" 
+                        name="state" 
+                        value={this.state.seekers.state} 
+                        onChange={this.handleChange} 
+                        class="form-control" 
+                        placeholder="State"
+                        />
                      </div>
 
                      <div class="form-group col-md-2">
-                        <label for="inputZip">Zip</label>
+                        <label>Zip</label>
                         {/* <!-- Zip Code --> */}
-                        <input type="text" id="defaultRegisterFormLastName" value={this.state.seekers.zipcode} onChange={this.handleChange} class="form-control" placeholder="Zip code"/>
+                        <input 
+                        type="zipcode" 
+                        type="zipcode" 
+                        value={this.state.seekers.zipcode} 
+                        onChange={this.handleChange} 
+                        class="form-control" 
+                        placeholder="Zip code"
+                        />
                      </div>
                   </div>
 
