@@ -13,7 +13,7 @@ class SideNavBarUIJobSeeker extends React.Component {
                 <NavLink to="/jobseekerprofile/" activeClassName="activeNav">Profile</NavLink>
             </div>
             <div>
-                <NavLink to="/matches/" activeClassName="activeNav">Matches</NavLink>
+                <NavLink to="/jobseekerview/" activeClassName="activeNav">Potential Matches</NavLink>
             </div>
             <div>
                 <NavLink to="/messages/" activeClassName="activeNav">Messages</NavLink>

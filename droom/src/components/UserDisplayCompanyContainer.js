@@ -9,7 +9,7 @@ class UserDisplayCompanyContainer extends React.Component {
   render() {
     return (
       <div className="userDisplayContainer">
-          <h1>Container for Job Seekers Available</h1>
+          <h1>Potential Job Seekers Available</h1>
           <h1>Listings: </h1>
           <img
             className="demoProfilePics"

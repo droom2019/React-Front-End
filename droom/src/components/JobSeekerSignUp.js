@@ -2,31 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { jobseekersignup } from '../actions';
 import { Label, Input, LoginButton, Form } from '../StyledComponents';
+import jwt from "jwt-decode";
 
 class JobSeekerSignUp extends React.Component {
    state = {
-      userId: "",
+      userId: jwt(localStorage.getItem("token")).subject,
       seekers: {
          firstName: "",
          lastName: "",
          profilePicture:"",
-         month:"",
-         day:"",
-         year:"",
+         month:10,
+         day:10,
+         year:1988,
          country:"",
          state:"",
          city: "",
-         zipcode:""
+         zipcode:75051
       }
    };
 
    handleChange = e => {
       e.preventDefault();
-
+      console.log("change seekers")
       this.setState({
          seekers: {
             ...this.state.seekers,
-            [e.target.name]: e.target.type
+            [e.target.name]: e.target.value
          }
       });
    };

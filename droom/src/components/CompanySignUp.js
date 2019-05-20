@@ -1,28 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { companysignup } from '../actions';
+import jwt from "jwt-decode";
 
 class CompanySignUp extends React.Component {
    state = {
-      userId: "",
-      companies: {
+      userId: jwt(localStorage.getItem("token")).subject,
+      company: {
          companyName: "",
          companyPicture: "",
          companyDescription: "",
          country: "",
          state: "",
          city: "",
-         zipcode: ""
+         zipcode: 75051
       }
    };
 
    handleChange = e => {
       e.preventDefault();
-      console.log("change")
+      console.log("change companies")
       this.setState({
-         companies: {
-            ...this.state.companies,
-            [e.target.name]: e.target.type
+         company: {
+            ...this.state.company,
+            [e.target.name]: e.target.value
          }
       });
    };
@@ -30,7 +31,7 @@ class CompanySignUp extends React.Component {
    handleSubmit = e => {
       e.preventDefault()
 
-      this.props.companysignup(this.state.companies)
+      this.props.companysignup(this.state)
       .then(res => (res === false) ? null : this.props.history.push("/companyprofile")      
       );
    };
@@ -48,9 +49,8 @@ class CompanySignUp extends React.Component {
                <label>Company Name</label>
                {/* <!-- Company name --> */}
                <input 
-               type="companyName" 
                name="companyName" 
-               value={this.state.companies.companyName} 
+               value={this.state.company.companyName} 
                onChange={this.handleChange} 
                class="form-control mb-4" 
                placeholder="Company name"
@@ -63,7 +63,7 @@ class CompanySignUp extends React.Component {
                rows="3"
                type="companyDescription" 
                name="companyDescription" 
-               value={this.state.companies.companyDescription} 
+               value={this.state.company.companyDescription} 
                onChange={this.handleChange} 
                placeholder="Company Description"
                />
@@ -73,7 +73,7 @@ class CompanySignUp extends React.Component {
                   {/* <!-- Country --> */}
                   <input  
                   name="country" 
-                  value={this.state.companies.country} 
+                  value={this.state.company.country} 
                   onChange={this.handleChange} 
                   class="form-control" 
                   placeholder="Country"
@@ -85,7 +85,7 @@ class CompanySignUp extends React.Component {
                         {/* <!-- City --> */}
                         <input 
                         name="city" 
-                        value={this.state.companies.city} 
+                        value={this.state.company.city} 
                         onChange={this.handleChange} 
                         class="form-control" 
                         placeholder="City"
@@ -97,7 +97,7 @@ class CompanySignUp extends React.Component {
                         {/* <!-- State --> */}
                         <input 
                         name="state" 
-                        value={this.state.companies.state} 
+                        value={this.state.company.state} 
                         onChange={this.handleChange} 
                         class="form-control" 
                         placeholder="State"
@@ -109,7 +109,7 @@ class CompanySignUp extends React.Component {
                         {/* <!-- Zip Code --> */}
                         <input 
                         name="zipcode" 
-                        value={this.state.companies.zipcode} 
+                        value={this.state.company.zipcode} 
                         onChange={this.handleChange} 
                         class="form-control" 
                         placeholder="Zip code"

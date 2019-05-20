@@ -13,7 +13,7 @@ class SideNavBarUICompany extends React.Component {
                 <NavLink to="/companyprofile/" activeClassName="activeNav">Profile</NavLink>
             </div>
             <div>
-                <NavLink to="/matches/" activeClassName="activeNav">Matches</NavLink>
+                <NavLink to="/companyview/" activeClassName="activeNav">Potential Matches</NavLink>
             </div>
             <div>
                 <NavLink to="/messages/" activeClassName="activeNav">Messages</NavLink>

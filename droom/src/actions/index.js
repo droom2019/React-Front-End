@@ -1,6 +1,6 @@
 import axiosWithAuth from '../Helper';
 import axios from 'axios';
-import { CardActions } from '@material-ui/core';
+import jwt from "jwt-decode";
 
 // REGISTRATION ACTIONS
 
@@ -65,8 +65,9 @@ export const companysignup = companies => dispatch => {
       dispatch({type: SIGNUP_SUCCESS});
    })
    .catch(err => {
-      console.log("login error:", err);
-      dispatch({ type: SIGNUP_FAILURE });
+      console.dir(err)
+      console.log("login error:", err.response);
+      dispatch({ type: SIGNUP_FAILURE, payload: err.response });
       return false
       })
 }
@@ -83,33 +84,33 @@ export const jobseekersignup = seekers => dispatch => {
       dispatch({type: SIGNUP_SUCCESS});
    })
    .catch(err => {
-      console.log("login error:", err);
-      dispatch({ type: SIGNUP_FAILURE });
+      console.log("error message", err.response);
+      dispatch({ type: SIGNUP_FAILURE, payload: err.response });
       return false
       })
 }
 
-export const FETCH_START = "FETCH_START";
-export const FETCH_SUCCESS = "FETCH_SUCCESS";
-export const FETCH_FAILURE = "FETCH_FAILURE";
+// export const FETCH_START = "FETCH_START";
+// export const FETCH_SUCCESS = "FETCH_SUCCESS";
+// export const FETCH_FAILURE = "FETCH_FAILURE";
 
-export const getUser = id => dispatch => {
+// export const getUser = id => dispatch => {
 
-   dispatch({type: FETCH_START});
-   axiosWithAuth().get('https://droom-api.herokuapp.com/auth/', {
-      headers: { Authorization: localStorage.getItem("token") }})
-      .then(res => {
-         console.log(res);
-         dispatch({type: FETCH_SUCCESS, payload: res.data})
-      })
-      .catch(err => {
-         dispatch({type: FETCH_FAILURE, payload: err})
-      })
-}
+//    dispatch({type: FETCH_START});
+//    axiosWithAuth().get('https://droom-api.herokuapp.com/auth/', {
+//       headers: { Authorization: localStorage.getItem("token") }})
+//       .then(res => {
+//          console.log(res);
+//          dispatch({type: FETCH_SUCCESS, payload: res.data})
+//       })
+//       .catch(err => {
+//          dispatch({type: FETCH_FAILURE, payload: err})
+//       })
+// }
 
-export const FETCH_COMPANY_START = "FETCH_START";
-export const FETCH_COMPANY_SUCCESS = "FETCH_SUCCESS";
-export const FETCH_COMPANY_FAILURE = "FETCH_FAILURE";
+export const FETCH_COMPANY_START = "FETCH_COMPANY_START";
+export const FETCH_COMPANY_SUCCESS = "FETCH_COMPANY_SUCCESS";
+export const FETCH_COMPANY_FAILURE = "FETCH_COMPANY_FAILURE";
 
 export const getCompany = () => dispatch => {
    dispatch({type: FETCH_COMPANY_START});
@@ -124,16 +125,17 @@ export const getCompany = () => dispatch => {
      })
  }
 
-export const FETCH_COMPANY_BY_ID_START = "FETCH_START";
-export const  FETCH_COMPANY_BY_ID_SUCCESS = "FETCH_SUCCESS";
-export const  FETCH_COMPANY_BY_ID_FAILURE = "FETCH_FAILURE";
+export const FETCH_COMPANY_BY_ID_START = "FETCH_COMPANY_BY_ID_START";
+export const  FETCH_COMPANY_BY_ID_SUCCESS = "FETCH_COMPANY_BY_ID_SUCCESS";
+export const  FETCH_COMPANY_BY_ID_FAILURE = "FETCH_COMPANY_BY_ID_FAILURE";
 
- export const getCompanyById = id => dispatch => {
+export const getCompanyById = (id) => dispatch => {
    dispatch({type: FETCH_COMPANY_BY_ID_START});
-   axios.get(`https://droom-api.herokuapp.com/api/companies/:${id}`)
+
+   axios.get(`https://droom-api.herokuapp.com/api/companies/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
      .then(res => {
-       console.log(res);
-       dispatch({type: FETCH_COMPANY_BY_ID_SUCCESS, payload: res.data})
+       console.log(res.data);
+       dispatch({type: FETCH_COMPANY_BY_ID_SUCCESS, payload: res.data.companies})
      })
      .catch(err => {
        console.log(err);
@@ -141,9 +143,9 @@ export const  FETCH_COMPANY_BY_ID_FAILURE = "FETCH_FAILURE";
      })
  }
 
-export const FETCH_SEEKER_START = "FETCH_START";
-export const FETCH_SEEKER_SUCCESS = "FETCH_SUCCESS";
-export const FETCH_SEEKER_FAILURE = "FETCH_FAILURE";
+export const FETCH_SEEKER_START = "FETCH_SEEKER_START";
+export const FETCH_SEEKER_SUCCESS = "FETCH_SEEKER_SUCCESS";
+export const FETCH_SEEKER_FAILURE = "FETCH_SEEKER_FAILURE";
 
 export const getSeeker = () => dispatch => {
    dispatch({type: FETCH_SEEKER_START});
@@ -157,3 +159,21 @@ export const getSeeker = () => dispatch => {
        dispatch({type: FETCH_SEEKER_FAILURE, payload: err})
      })
 }
+
+export const FETCH_SEEKER_BY_ID_START = "FETCH_SEEKER_BY_ID_START";
+export const  FETCH_SEEKER_BY_ID_SUCCESS = "FETCH_SEEKER_BY_ID_SUCCESS";
+export const  FETCH_SEEKER_BY_ID_FAILURE = "FETCH_SEEKER_BY_ID_FAILURE";
+
+export const getSeekerById = (id) => dispatch => {
+   dispatch({type: FETCH_SEEKER_BY_ID_START});
+
+   axios.get(`https://droom-api.herokuapp.com/api/seekers/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log(res.data);
+       dispatch({type: FETCH_SEEKER_BY_ID_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       console.log(err);
+       dispatch({type: FETCH_SEEKER_BY_ID_FAILURE, payload: err})
+     })
+ }

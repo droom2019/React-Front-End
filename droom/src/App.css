@@ -44,6 +44,36 @@ h1 {
   /* text-transform: uppercase; */
   color: white;
 }
+  
+h2 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 45px;
+  margin: 20px auto;
+  /* padding: 5px 4px; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  color: white;
+}
+
+h3 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 25px;
+  margin: 20px auto;
+  /* padding: 5px 4px; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  color: white;
+}
+
+h4 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 18px;
+  margin: 20px auto;
+  /* padding: 5px 4px; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  color: white;
+}
 
 a {
   text-decoration: none;
@@ -229,6 +259,18 @@ a:hover {
   flex-direction: column;
   align-items: center;
   width: 50%;
+  margin: 20px auto;
+  padding: 0px 50px;
+  border: 1px solid white;
+  
+}
+
+.userNameContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
   margin: 20px auto;
   padding: 0px 20px;
   border: 1px solid white;

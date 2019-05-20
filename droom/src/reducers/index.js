@@ -3,13 +3,13 @@ import {
    REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE,
    SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAILURE,
 
-   FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
+   // FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
 
    FETCH_COMPANY_START, FETCH_COMPANY_SUCCESS, FETCH_COMPANY_FAILURE,
-   // FETCH_COMPANY_BY_ID_START, FETCH_COMPANY_BY_ID_SUCCESS, FETCH_COMPANY_BY_ID_FAILURE,
+   FETCH_COMPANY_BY_ID_START, FETCH_COMPANY_BY_ID_SUCCESS, FETCH_COMPANY_BY_ID_FAILURE,
 
    FETCH_SEEKER_START, FETCH_SEEKER_SUCCESS, FETCH_SEEKER_FAILURE,
-   // FETCH_SEEKER_BY_ID_START, FETCH_SEEKER_BY_ID_SUCCESS, FETCH_SEEKER_BY_ID_FAILURE
+   FETCH_SEEKER_BY_ID_START, FETCH_SEEKER_BY_ID_SUCCESS, FETCH_SEEKER_BY_ID_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -39,6 +39,7 @@ export default (state = initialState, action) => {
          }
       }
       case LOGIN_SUCCESS: {
+
          return {
             ...state,
             loggingIn: false,
@@ -72,6 +73,7 @@ export default (state = initialState, action) => {
             registerError: "failed to register"
          }
       }
+      
       case SIGNUP_START: {
          return {
             ...state,
@@ -93,27 +95,27 @@ export default (state = initialState, action) => {
          }
       }
 
-      case FETCH_START: {
-         return {
-            ...state,
-            fetchingCreds: true
-         }
-      }
-      case FETCH_SUCCESS: {
-         return {
-            ...state,
-            fetchingCreds: false,
-            creds: action.payload,
-            filteredCreds: action.payload
-         }
-      }
-      case FETCH_FAILURE: {
-         return {
-            ...state,
-            fetchingCreds: false,
-            error: action.payload
-         }
-      }
+      // case FETCH_START: {
+      //    return {
+      //       ...state,
+      //       fetchingCreds: true
+      //    }
+      // }
+      // case FETCH_SUCCESS: {
+      //    return {
+      //       ...state,
+      //       fetchingCreds: false,
+      //       creds: action.payload,
+      //       filteredCreds: action.payload
+      //    }
+      // }
+      // case FETCH_FAILURE: {
+      //    return {
+      //       ...state,
+      //       fetchingCreds: false,
+      //       error: action.payload
+      //    }
+      // }
 
       case FETCH_COMPANY_START: {
          return {
@@ -136,6 +138,29 @@ export default (state = initialState, action) => {
          }
       }
 
+      case FETCH_COMPANY_BY_ID_START: {
+         return {
+            ...state,
+            fetchingCompanies: true
+         }
+      }
+      case FETCH_COMPANY_BY_ID_SUCCESS: {
+         // console.log("action.payload", action.payload)
+         // console.log("aasdasdasdadadadadsdsfsfsdfsad")
+         return {
+            ...state,
+            fetchingCompanies: false,
+            companies: action.payload,
+         }
+      }
+      case FETCH_COMPANY_BY_ID_FAILURE: {
+         return {
+            ...state,
+            fetchingCompanies: false,
+            error: action.payload
+         }
+      }
+
       case FETCH_SEEKER_START: {
          return {
             ...state,
@@ -150,6 +175,29 @@ export default (state = initialState, action) => {
          }
       }
       case FETCH_SEEKER_FAILURE: {
+         return {
+            ...state,
+            fetchingSeeker: false,
+            error: action.payload
+         }
+      }
+
+      case FETCH_SEEKER_BY_ID_START: {
+         return {
+            ...state,
+            fetchingSeeker: true
+         }
+      }
+      case FETCH_SEEKER_BY_ID_SUCCESS: {
+         console.log("action.payload", action.payload)
+         console.log("aasdasdasdadadadadsdsfsfsdfsad")
+         return {
+            ...state,
+            fetchingSeeker: false,
+            seekers: action.payload,
+         }
+      }
+      case FETCH_SEEKER_BY_ID_FAILURE: {
          return {
             ...state,
             fetchingSeeker: false,
