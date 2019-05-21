@@ -59,14 +59,14 @@ export const companysignup = companies => dispatch => {
    dispatch({type: SIGNUP_START});
    console.log(companies);  
 
-   return axiosWithAuth().post('https://droom-api.herokuapp.com/api/companies', companies)
+   return axiosWithAuth().post("https://droom-api.herokuapp.com/api/companies", companies)
    .then(res => {
       console.log(res)
       dispatch({type: SIGNUP_SUCCESS});
    })
    .catch(err => {
       console.dir(err)
-      console.log("login error:", err.response);
+      console.log("sign up error:", err.response);
       dispatch({ type: SIGNUP_FAILURE, payload: err.response });
       return false
       })
@@ -75,19 +75,20 @@ export const companysignup = companies => dispatch => {
 // JOBSEEKER SIGN UP ACTIONS
 
 export const jobseekersignup = seekers => dispatch => {
-   dispatch({type: SIGNUP_START});
-   console.log(seekers);  
+  dispatch({type: SIGNUP_START});
+  console.log(seekers);  
 
-   return axiosWithAuth().post('https://droom-api.herokuapp.com/api/seekers', seekers)
-   .then(res => {
-      console.log(res)
-      dispatch({type: SIGNUP_SUCCESS});
-   })
-   .catch(err => {
-      console.log("error message", err.response);
-      dispatch({ type: SIGNUP_FAILURE, payload: err.response });
-      return false
-      })
+  return axiosWithAuth().post('https://droom-api.herokuapp.com/api/seekers', seekers)
+  .then(res => {
+     console.log(res)
+     dispatch({type: SIGNUP_SUCCESS});
+  })
+  .catch(err => {
+     console.dir(err)
+     console.log("sign up error:", err.response);
+     dispatch({ type: SIGNUP_FAILURE, payload: err.response });
+     return false
+     })
 }
 
 export const FETCH_COMPANY_START = "FETCH_COMPANY_START";
@@ -180,7 +181,7 @@ export const updateSeeker = (id) => dispatch => {
  }
 
 export const  UPDATE_COMPANY_START = "UPDATE_COMPANY_START";
-export const  UPDATE_COMPANY_SUCCESS = "UPDATE_COMPANY_SUCCESSS";
+export const  UPDATE_COMPANY_SUCCESS = "UPDATE_COMPANY_SUCCESS";
 export const  UPDATE_COMPANY_FAILURE = "UPDATE_COMPANY_FAILURE";
 
  export const updateCompany = (id) => dispatch => {
@@ -240,7 +241,7 @@ export const FETCH_MATCHES_FOR_SEEKER_BY_ID_FAILURE = "FETCH_MATCHES_FOR_SEEKER_
 
 export const getMatchesBySeekerId = (id) => dispatch => {
    dispatch({type: FETCH_MATCHES_FOR_SEEKER_BY_ID_START});
-   axios.get("https://droom-api.herokuapp.com/api/matches/seekers/1", {headers: {Authorization: localStorage.getItem('token')}})
+   axios.get(`https://droom-api.herokuapp.com/api/matches/seekers/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
      .then(res => {
        console.log("labelasdasda", res);
        dispatch({type: FETCH_MATCHES_FOR_SEEKER_BY_ID_SUCCESS, payload: res.data})

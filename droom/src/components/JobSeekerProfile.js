@@ -11,9 +11,9 @@ import jwt from "jwt-decode";
 
 class JobSeekerProfile extends React.Component {
   state = {
-    seekers: {
-      firstName: '',
-    }
+    // seekers: {
+    //   firstName: '',
+    // }
   }
 
   componentDidMount() {

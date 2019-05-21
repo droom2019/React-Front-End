@@ -19,7 +19,6 @@ class CompanySignUp extends React.Component {
 
    handleChange = e => {
       e.preventDefault();
-      console.log("change companies")
       this.setState({
          company: {
             ...this.state.company,
@@ -30,7 +29,6 @@ class CompanySignUp extends React.Component {
 
    handleSubmit = e => {
       e.preventDefault()
-
       this.props.companysignup(this.state)
       .then(res => (res === false) ? null : this.props.history.push("/companyprofile")      
       );
