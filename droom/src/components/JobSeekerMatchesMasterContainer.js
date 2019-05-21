@@ -3,10 +3,10 @@ import { Route, NavLink } from 'react-router-dom';
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import droom from '../assets/images/droom.png';
 import Messages from './Messages';
-import Matches from './Matches';
+import JobSeekerMatches from './JobSeekerMatches';
 
 
-class MatchesMasterContainer extends React.Component {
+class JobSeekerMatchesMasterContainer extends React.Component {
 
     render() {
         
@@ -25,8 +25,8 @@ class MatchesMasterContainer extends React.Component {
                 
                     <div class="tab-content">
                         <div class="container tab-pane active" id="matches">
-                            <Route to="/#matches" path="/matches" component={Matches} />
-                            <Matches />
+                            <Route to="/#matches" path="/jobseekermatches" component={JobSeekerMatches} />
+                            <JobSeekerMatches />
                         </div>
 
                         <div class="container tab-pane fade" id="messages">
@@ -39,4 +39,4 @@ class MatchesMasterContainer extends React.Component {
         }
     };
 
-export default MatchesMasterContainer;
+export default JobSeekerMatchesMasterContainer;

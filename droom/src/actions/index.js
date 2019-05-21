@@ -90,24 +90,6 @@ export const jobseekersignup = seekers => dispatch => {
       })
 }
 
-// export const FETCH_START = "FETCH_START";
-// export const FETCH_SUCCESS = "FETCH_SUCCESS";
-// export const FETCH_FAILURE = "FETCH_FAILURE";
-
-// export const getUser = id => dispatch => {
-
-//    dispatch({type: FETCH_START});
-//    axiosWithAuth().get('https://droom-api.herokuapp.com/auth/', {
-//       headers: { Authorization: localStorage.getItem("token") }})
-//       .then(res => {
-//          console.log(res);
-//          dispatch({type: FETCH_SUCCESS, payload: res.data})
-//       })
-//       .catch(err => {
-//          dispatch({type: FETCH_FAILURE, payload: err})
-//       })
-// }
-
 export const FETCH_COMPANY_START = "FETCH_COMPANY_START";
 export const FETCH_COMPANY_SUCCESS = "FETCH_COMPANY_SUCCESS";
 export const FETCH_COMPANY_FAILURE = "FETCH_COMPANY_FAILURE";
@@ -160,6 +142,8 @@ export const getSeeker = () => dispatch => {
      })
 }
 
+// Get Seeker By Id
+
 export const FETCH_SEEKER_BY_ID_START = "FETCH_SEEKER_BY_ID_START";
 export const  FETCH_SEEKER_BY_ID_SUCCESS = "FETCH_SEEKER_BY_ID_SUCCESS";
 export const  FETCH_SEEKER_BY_ID_FAILURE = "FETCH_SEEKER_BY_ID_FAILURE";
@@ -177,3 +161,145 @@ export const getSeekerById = (id) => dispatch => {
        dispatch({type: FETCH_SEEKER_BY_ID_FAILURE, payload: err})
      })
  }
+
+
+export const  UPDATE_SEEKER_START = "UPDATE_SEEKER_START";
+export const  UPDATE_SEEKER_SUCCESS = "UPDATE_SEEKER_SUCCESSS";
+export const  UPDATE_SEEKER_FAILURE = "UPDATE_SEEKER_FAILURE";
+
+export const updateSeeker = (id) => dispatch => {
+   dispatch({type: UPDATE_SEEKER_START});
+   axios.put(`https://droom-api.herokuapp.com/api/seekers/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log(res);
+       dispatch({type: UPDATE_SEEKER_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       dispatch({type: UPDATE_SEEKER_FAILURE, payload: err})
+     })
+ }
+
+export const  UPDATE_COMPANY_START = "UPDATE_COMPANY_START";
+export const  UPDATE_COMPANY_SUCCESS = "UPDATE_COMPANY_SUCCESSS";
+export const  UPDATE_COMPANY_FAILURE = "UPDATE_COMPANY_FAILURE";
+
+ export const updateCompany = (id) => dispatch => {
+   dispatch({type: UPDATE_COMPANY_START});
+   axios.put(`https://droom-api.herokuapp.com/api/companies/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log(res);
+       dispatch({type: UPDATE_COMPANY_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       dispatch({type: UPDATE_COMPANY_FAILURE, payload: err})
+     })
+ }
+
+
+
+export const  DELETE_SEEKER_START = "DELETE_SEEKER_START";
+export const  DELETE_SEEKER_SUCCESS = "DELETE_SEEKER_SUCCESSS";
+export const  DELETE_SEEKER_FAILURE = "DELETE_SEEKER_FAILURE";
+
+export const deleteSeeker = (id) => dispatch => {
+   dispatch({type: DELETE_SEEKER_START});
+   axios.delete(`https://droom-api.herokuapp.com/api/seekers/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log(res);
+       dispatch({type: DELETE_SEEKER_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       dispatch({type: DELETE_SEEKER_FAILURE, payload: err})
+     })
+ }
+
+export const  DELETE_COMPANY_START = "DELETE_COMPANY_START";
+export const  DELETE_COMPANY_SUCCESS = "DELETE_COMPANY_SUCCESSS";
+export const  DELETE_COMPANY_FAILURE = "DELETE_COMPANY_FAILURE";
+
+ export const deleteCompany = (id) => dispatch => {
+   dispatch({type: DELETE_COMPANY_START});
+   axios.delete(`https://droom-api.herokuapp.com/api/companies/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log(res);
+       dispatch({type: DELETE_COMPANY_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       dispatch({type: DELETE_COMPANY_FAILURE, payload: err})
+     })
+ }
+
+
+
+
+ // MATCHES ACTIONS
+
+export const FETCH_MATCHES_FOR_SEEKER_BY_ID_START = "FETCH_MATCHES_FOR_SEEKER_BY_ID_START";
+export const FETCH_MATCHES_FOR_SEEKER_BY_ID_SUCCESS = "FETCH_MATCHES_FOR_SEEKER_BY_ID_SUCCESS";
+export const FETCH_MATCHES_FOR_SEEKER_BY_ID_FAILURE = "FETCH_MATCHES_FOR_SEEKER_BY_ID_FAILURE";
+
+export const getMatchesBySeekerId = (id) => dispatch => {
+   dispatch({type: FETCH_MATCHES_FOR_SEEKER_BY_ID_START});
+   axios.get("https://droom-api.herokuapp.com/api/matches/seekers/1", {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log("labelasdasda", res);
+       dispatch({type: FETCH_MATCHES_FOR_SEEKER_BY_ID_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       console.log(err);
+       dispatch({type: FETCH_MATCHES_FOR_SEEKER_BY_ID_FAILURE, payload: err})
+     })
+ }
+
+export const FETCH_MATCHES_FOR_COMPANY_BY_ID_START = "FETCH_MATCHES_FOR_COMPANY_BY_ID_START";
+export const FETCH_MATCHES_FOR_COMPANY_BY_ID_SUCCESS = "FETCH_MATCHES_FOR_COMPANY_BY_ID_SUCCESS";
+export const FETCH_MATCHES_FOR_COMPANY_BY_ID_FAILURE = "FETCH_MATCHES_FOR_COMPANY_BY_ID_FAILURE";
+
+export const getMatchesByCompanyId = (id) => dispatch => {
+   dispatch({type: FETCH_MATCHES_FOR_COMPANY_BY_ID_START});
+   axios.get(`https://droom-api.herokuapp.com/api/matches/company/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log(res);
+       dispatch({type: FETCH_MATCHES_FOR_COMPANY_BY_ID_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       console.log(err);
+       dispatch({type: FETCH_MATCHES_FOR_COMPANY_BY_ID_FAILURE, payload: err})
+     })
+ }
+
+
+
+export const FETCH_SEEKER_EDUCATION_BY_ID_START = "FETCH_SEEKER_EDUCATION_BY_ID_START";
+export const FETCH_SEEKER_EDUCATION_BY_ID_SUCCESS = "FETCH_SEEKER_EDUCATION_BY_ID_SUCCESS";
+export const FETCH_SEEKER_EDUCATION_BY_ID_FAILURE = "FETCH_SEEKER_EDUCATION_BY_ID_FAILURE";
+
+export const getSeekerEducationById = id => dispatch => {
+   dispatch({type: FETCH_SEEKER_EDUCATION_BY_ID_START});
+   axios.get(`https://droom-api.herokuapp.com/api/education/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log(res);
+       dispatch({type: FETCH_SEEKER_EDUCATION_BY_ID_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       console.log(err);
+       dispatch({type: FETCH_SEEKER_EDUCATION_BY_ID_FAILURE, payload: err})
+     })
+}
+
+export const FETCH_SEEKER_SKILL_BY_ID_START = "FETCH_SEEKER_SKILL_BY_ID_START";
+export const FETCH_SEEKER_SKILL_BY_ID_SUCCESS = "FETCH_SEEKER_SKILL_BY_ID_SUCCESS";
+export const FETCH_SEEKER_SKILL_BY_ID_FAILURE = "FETCH_SEEKER_SKILL_BY_ID_FAILURE";
+
+export const getSeekerSkillById = id => dispatch => {
+   dispatch({type: FETCH_SEEKER_SKILL_BY_ID_START});
+   axios.get(`https://droom-api.herokuapp.com/api/education/${id}`, {headers: {Authorization: localStorage.getItem('token')}})
+     .then(res => {
+       console.log(res);
+       dispatch({type: FETCH_SEEKER_SKILL_BY_ID_SUCCESS, payload: res.data})
+     })
+     .catch(err => {
+       console.log(err);
+       dispatch({type: FETCH_SEEKER_SKILL_BY_ID_FAILURE, payload: err})
+     })
+}

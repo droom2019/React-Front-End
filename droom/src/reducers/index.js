@@ -3,13 +3,23 @@ import {
    REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE,
    SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAILURE,
 
-   // FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
-
    FETCH_COMPANY_START, FETCH_COMPANY_SUCCESS, FETCH_COMPANY_FAILURE,
    FETCH_COMPANY_BY_ID_START, FETCH_COMPANY_BY_ID_SUCCESS, FETCH_COMPANY_BY_ID_FAILURE,
 
    FETCH_SEEKER_START, FETCH_SEEKER_SUCCESS, FETCH_SEEKER_FAILURE,
-   FETCH_SEEKER_BY_ID_START, FETCH_SEEKER_BY_ID_SUCCESS, FETCH_SEEKER_BY_ID_FAILURE
+   FETCH_SEEKER_BY_ID_START, FETCH_SEEKER_BY_ID_SUCCESS, FETCH_SEEKER_BY_ID_FAILURE,
+   FETCH_SEEKER_EDUCATION_BY_ID_START, FETCH_SEEKER_EDUCATION_BY_ID_SUCCESS, FETCH_SEEKER_EDUCATION_BY_ID_FAILURE,
+
+   UPDATE_COMPANY_START, UPDATE_COMPANY_SUCCESS, UPDATE_COMPANY_FAILURE,
+   UPDATE_SEEKER_START, UPDATE_SEEKER_SUCCESS, UPDATE_SEEKER_FAILURE,
+
+   DELETE_COMPANY_START, DELETE_COMPANY_SUCCESS, DELETE_COMPANY_FAILURE,
+   DELETE_SEEKER_START, DELETE_SEEKER_SUCCESS, DELETE_SEEKER_FAILURE,
+
+   FETCH_MATCHES_FOR_SEEKER_BY_ID_START, FETCH_MATCHES_FOR_SEEKER_BY_ID_SUCCESS, FETCH_MATCHES_FOR_SEEKER_BY_ID_FAILURE,
+   FETCH_MATCHES_FOR_COMPANY_BY_ID_START, FETCH_MATCHES_FOR_COMPANY_BY_ID_SUCCESS, FETCH_MATCHES_FOR_COMPANY_BY_ID_FAILURE,
+
+   FETCH_SEEKER_SKILL_BY_ID_START, FETCH_SEEKER_SKILL_BY_ID_SUCCESS, FETCH_SEEKER_SKILL_BY_ID_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -24,8 +34,16 @@ const initialState = {
    signUpError: null,
    fetchingCompany: false,
    fetchingSeeker: false,
+   updatingSeeker: false,
+   updatingCompany: false,
+   deletingSeeker: false,
+   deletingCompany: false,
+   fetchingMatches: false,
+   fetchingEducation: false,
    companies:[],
    seekers: [],
+   matches: [],
+   education: [],
    error: ''
 }
 
@@ -95,28 +113,6 @@ export default (state = initialState, action) => {
          }
       }
 
-      // case FETCH_START: {
-      //    return {
-      //       ...state,
-      //       fetchingCreds: true
-      //    }
-      // }
-      // case FETCH_SUCCESS: {
-      //    return {
-      //       ...state,
-      //       fetchingCreds: false,
-      //       creds: action.payload,
-      //       filteredCreds: action.payload
-      //    }
-      // }
-      // case FETCH_FAILURE: {
-      //    return {
-      //       ...state,
-      //       fetchingCreds: false,
-      //       error: action.payload
-      //    }
-      // }
-
       case FETCH_COMPANY_START: {
          return {
             ...state,
@@ -145,8 +141,8 @@ export default (state = initialState, action) => {
          }
       }
       case FETCH_COMPANY_BY_ID_SUCCESS: {
-         // console.log("action.payload", action.payload)
-         // console.log("aasdasdasdadadadadsdsfsfsdfsad")
+         console.log("action.payload", action.payload)
+
          return {
             ...state,
             fetchingCompanies: false,
@@ -190,7 +186,6 @@ export default (state = initialState, action) => {
       }
       case FETCH_SEEKER_BY_ID_SUCCESS: {
          console.log("action.payload", action.payload)
-         console.log("aasdasdasdadadadadsdsfsfsdfsad")
          return {
             ...state,
             fetchingSeeker: false,
@@ -201,6 +196,190 @@ export default (state = initialState, action) => {
          return {
             ...state,
             fetchingSeeker: false,
+            error: action.payload
+         }
+      }
+
+      case UPDATE_SEEKER_START: {
+         return {
+           ...state,
+           updatingSeeker: true,
+           error: null
+         }
+       }
+   
+       case UPDATE_SEEKER_SUCCESS: {
+         return {
+           ...state,
+           updatingSeeker: false,
+           seekers: action.payload
+         }
+       }
+       
+       case UPDATE_SEEKER_FAILURE: {
+         return {
+           ...state,
+           updatingSeeker: false,
+           error: action.payload
+         }
+       }
+
+       case UPDATE_COMPANY_START: {
+         return {
+           ...state,
+           updatingCompany: true,
+           error: null
+         }
+       }
+   
+       case UPDATE_COMPANY_SUCCESS: {
+         return {
+           ...state,
+           updatingCompany: false,
+           companies: action.payload
+         }
+       }
+       
+       case UPDATE_COMPANY_FAILURE: {
+         return {
+           ...state,
+           updatingCompany: false,
+           error: action.payload
+         }
+       }
+
+      case DELETE_SEEKER_START: {
+         return {
+           ...state,
+           deletingSeeker: true,
+           error: null
+         }
+       }
+   
+       case DELETE_SEEKER_SUCCESS: {
+         return {
+           ...state,
+           deletingSeeker: false,
+           seekers: action.payload
+         }
+       }
+       
+       case DELETE_SEEKER_FAILURE: {
+         return {
+           ...state,
+           deletingSeeker: false,
+           error: action.payload
+         }
+       }
+
+       case DELETE_COMPANY_START: {
+         return {
+           ...state,
+           deletingCompany: true,
+           error: null
+         }
+       }
+   
+       case DELETE_COMPANY_SUCCESS: {
+         return {
+           ...state,
+           deletingCompany: false,
+           companies: action.payload
+         }
+       }
+       
+       case DELETE_COMPANY_FAILURE: {
+         return {
+           ...state,
+           deletingCompany: false,
+           error: action.payload
+         }
+       }
+
+       case FETCH_MATCHES_FOR_SEEKER_BY_ID_START: {
+         return {
+            ...state,
+            fetchingMatches: true
+         }
+      }
+      case FETCH_MATCHES_FOR_SEEKER_BY_ID_SUCCESS: {
+         console.log("action.payload", action.payload)
+         return {
+            ...state,
+            fetchingMatches: false,
+            matches: action.payload,
+         }
+      }
+      case FETCH_MATCHES_FOR_SEEKER_BY_ID_FAILURE: {
+         return {
+            ...state,
+            fetchingMatches: false,
+            error: action.payload
+         }
+      }
+
+      case FETCH_MATCHES_FOR_COMPANY_BY_ID_START: {
+         return {
+            ...state,
+            fetchingMatches: true
+         }
+      }
+      case FETCH_MATCHES_FOR_COMPANY_BY_ID_SUCCESS: {
+         console.log("action.payload", action.payload)
+         return {
+            ...state,
+            fetchingMatches: false,
+            matches: action.payload,
+         }
+      }
+      case FETCH_MATCHES_FOR_COMPANY_BY_ID_FAILURE: {
+         return {
+            ...state,
+            fetchingMatches: false,
+            error: action.payload
+         }
+      }
+
+      case FETCH_SEEKER_EDUCATION_BY_ID_START: {
+         return {
+            ...state,
+            fetchingEducation: true
+         }
+      }
+      case FETCH_SEEKER_EDUCATION_BY_ID_SUCCESS: {
+         console.log("action.payload", action.payload)
+         return {
+            ...state,
+            fetchingEducation: false,
+            education: action.payload,
+         }
+      }
+      case FETCH_SEEKER_EDUCATION_BY_ID_FAILURE: {
+         return {
+            ...state,
+            fetchingEducation: false,
+            error: action.payload
+         }
+      }
+
+      case FETCH_SEEKER_SKILL_BY_ID_START: {
+         return {
+            ...state,
+            fetchingSkill: true
+         }
+      }
+      case FETCH_SEEKER_EDUCATION_BY_ID_SUCCESS: {
+         console.log("action.payload", action.payload)
+         return {
+            ...state,
+            fetchingSkill: false,
+            seekerSkill: action.payload,
+         }
+      }
+      case FETCH_SEEKER_EDUCATION_BY_ID_FAILURE: {
+         return {
+            ...state,
+            fetchingEducation: false,
             error: action.payload
          }
       }

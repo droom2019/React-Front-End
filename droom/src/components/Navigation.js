@@ -44,12 +44,12 @@ class Navigation extends React.Component {
           <div>
             <NavLink to="/team/" activeClassName="activeNav">Team</NavLink>
           </div>
-          <div>
+          {/* <div>
             <NavLink to="/jobseekerview/" activeClassName="activeNav">Job Seeker View</NavLink>
           </div>
           <div>
             <NavLink to="/companyview/" activeClassName="activeNav">Company View</NavLink>
-          </div>
+          </div> */}
           </nav>
         </div>
     );

@@ -20,25 +20,17 @@ class Home extends React.Component {
                     </div>
                 <div className="imgContainer">
                     <img className="" src={swipeTrans} height="200" alt="swipe transparent" />
-                    </div>
+                </div>
+
                 <div className="homeBtnsContainer">
-                        <MDBDropdown className="registerButton">
-                        <MDBDropdownToggle>
-                            <LoginButton>
-                            REGISTER
-                            </LoginButton>
-                        </MDBDropdownToggle>
-                        <MDBDropdownMenu  basic >
-                            <MDBDropdownItem><NavLink to="/companysignup/" activeClassName="activeNav" class="dropdown-item" >Company</NavLink></MDBDropdownItem>
-                            <MDBDropdownItem divider />
-                            <MDBDropdownItem><NavLink to="/jobseekersignup/" activeClassName="activeNav" class="dropdown-item" >Job Seeker</NavLink></MDBDropdownItem>
-                        </MDBDropdownMenu>
-                        </MDBDropdown>
+                    <div>
+                    <NavLink to="/register/" activeClassName="activeNav"><LoginButton>Register</LoginButton></NavLink>
                     </div>
                     <div>
-                        <NavLink to="/login/" activeClassName="activeNav"><LoginButton>Log In</LoginButton></NavLink>
+                    <NavLink to="/login/" activeClassName="activeNav"><LoginButton>Log In</LoginButton></NavLink>
                     </div>
                 </div>
+            </div>
                 )
             }
 };

@@ -20,7 +20,8 @@ import JobSeekerProfile from './components/JobSeekerProfile';
 import CompanyView from './components/CompanyView';
 import JobSeekerView from './components/JobSeekerView';
 import Messages from './components/Messages';
-import Matches from './components/Matches';
+import CompanyMatches from './components/CompanyMatches';
+import JobSeekerMatchesMasterContainer from './components/JobSeekerMatchesMasterContainer';
 
 
 
@@ -41,7 +42,8 @@ function App() {
         <Route path="/companyview" component={CompanyView} />
         <Route path="/jobseekerview" component={JobSeekerView} />
         <Route path="/messages" component={Messages} />
-        <Route path="/matches" component={Matches} />
+        <Route path="/companymatches" component={CompanyMatches} />
+        <Route path="/jobseekermatches" component={JobSeekerMatchesMasterContainer} />
     </div>
     );
   }

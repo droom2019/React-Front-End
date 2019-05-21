@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import droom from '../assets/images/droom.png';
 
-import MatchesMasterContainer from './MatchesMasterContainer';
+import JobSeekerMatchesMasterContainer from './JobSeekerMatchesMasterContainer';
 import UserDisplayJobSeekerContainer from './UserDisplayJobSeekerContainer';
 import SideNavBarUIJobSeeker from './SideNavBarUIJobSeeker';
 
@@ -15,7 +15,7 @@ class JobSeekerView extends React.Component {
         <div>
             <h1>Job Seeker View</h1>
             <div className="jobseekerUIcontainer">
-                <MatchesMasterContainer />
+                <JobSeekerMatchesMasterContainer />
                 <UserDisplayJobSeekerContainer />
                 <SideNavBarUIJobSeeker />
             </div>
