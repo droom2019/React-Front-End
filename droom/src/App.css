@@ -1,0 +1,309 @@
+.App {
+  text-align: center;
+  background-color: #50BDE4;
+  border: 10px double lightgrey;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 15px 20px;
+  margin: 0px auto;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: lightgrey;
+}
+
+/* h1 {
+  text-align: center;
+  color: white;
+  font-family: "Great Vibes", cursive;
+} */
+
+h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 65px;
+  margin: 20px auto;
+  /* padding: 5px 4px; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  color: white;
+}
+  
+h2 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 45px;
+  margin: 20px auto;
+  /* padding: 5px 4px; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  color: white;
+}
+
+h3 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 25px;
+  margin: 20px auto;
+  /* padding: 5px 4px; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  color: white;
+}
+
+h4 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 18px;
+  margin: 20px auto;
+  /* padding: 5px 4px; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  margin: 10px;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 0px;
+  margin: 0px auto;
+  background: linear-gradient(to bottom,#50BDE4, lightgrey);
+}
+
+.homeHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+  margin: 10px 0px;
+}
+
+.homeHeader h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 50px;
+  margin: 0px auto;
+  padding: 20px 0px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 2px 4px darkgrey, 0 0 .5em #50BDE4, 0 0 0.5em white;
+}
+
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto;
+  margin-bottom: 20px;
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px 0px;
+  margin: 0px auto;
+  background: linear-gradient(to bottom,#50BDE4, lightgrey);
+}
+
+.aboutContainer h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 65px;
+  margin: 5px auto;
+  padding: 10px 4px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 2px 4px darkgrey, 0 0 .5em #50BDE4, 0 0 0.5em white;
+}
+
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px 0px;
+  margin: 0px auto;
+  background: linear-gradient(to bottom,#50BDE4, lightgrey);
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px 0px;
+  margin: 0px auto;
+  background: linear-gradient(to bottom,#50BDE4, lightgrey);
+}
+
+.teamContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0px auto;
+  padding: 20px 0px;
+  background: linear-gradient(to bottom,#50BDE4, lightgrey);
+}
+
+.teamContainer a {
+  font-size: 50px;
+}
+
+.teamContainer img {
+  border: 10px solid white;
+  margin-bottom: 30px;
+}
+
+a:hover {
+  color: rgb(19, 188, 250);
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.activeNav {
+  /* background-color: darkgrey;
+  border-radius: 2px; */
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(95, 95, 95);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.dropdown.show.registerButton {
+  background-color: transparent;
+  border-color: transparent;
+  color: black;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-primary.dropdown-toggle {
+  background-color: lightgrey;
+  border: none;
+  font-size: 20px;
+  color: white;
+}
+
+.dropdown-menu.show {
+  background-color: lightgrey;
+  border-color: black;
+  font-size: 20px;
+  color: white;
+}
+
+.show .btn-primary.dropdown-toggle{
+  background-color: lightgrey;
+  border-color: black;
+  font-size: 20px;
+  color: white;
+}
+
+.jobseekerUIcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jobseekerUIcontainer input{
+  display: flex;
+  text-align: center;
+  margin: 0px auto;
+  width: 50%;
+}
+
+.matchesContainer {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+  width: 30%;
+  border: 2px solid white;
+}
+
+.matchesMasterContainer {
+  width: 30%;
+  margin: 20px auto;
+  border: 2px solid white;
+}
+
+.userDisplayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 20px auto;
+  padding: 0px 50px;
+  border: 2px solid white;
+}
+
+.userNameContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 20px auto;
+  padding: 0px 20px;
+  border: 2px solid white;
+  
+}
+
+.userDisplayContainer img {
+  max-width: 300px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  margin: 20px auto;
+}
+
+.sideNavContainer {
+  margin: 20px auto;
+  border: 2px solid white;
+}
+
+.messagesContainer {
+  color: black;
+  }
+
+  .buttonsGroup {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px auto;
+    width: 55%;
+  }
+  
