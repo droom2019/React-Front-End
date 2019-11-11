@@ -13,7 +13,7 @@ class CompanySignUp extends React.Component {
          country: "",
          state: "",
          city: "",
-         zipcode: 75051
+         zipcode: ""
       }
    };
 
@@ -46,7 +46,7 @@ class CompanySignUp extends React.Component {
 
                <label>Company Name</label>
                {/* <!-- Company name --> */}
-               <input 
+               <input type="text"
                name="companyName" 
                value={this.state.company.companyName} 
                onChange={this.handleChange} 
@@ -59,7 +59,7 @@ class CompanySignUp extends React.Component {
                <textarea 
                class="form-control rounded-0" 
                rows="3"
-               type="companyDescription" 
+               type="text" 
                name="companyDescription" 
                value={this.state.company.companyDescription} 
                onChange={this.handleChange} 
@@ -70,6 +70,7 @@ class CompanySignUp extends React.Component {
                   <label>Country</label>
                   {/* <!-- Country --> */}
                   <input  
+                  type="text"
                   name="country" 
                   value={this.state.company.country} 
                   onChange={this.handleChange} 
@@ -82,6 +83,7 @@ class CompanySignUp extends React.Component {
                         <label>City</label>
                         {/* <!-- City --> */}
                         <input 
+                        type="text"
                         name="city" 
                         value={this.state.company.city} 
                         onChange={this.handleChange} 
@@ -94,6 +96,7 @@ class CompanySignUp extends React.Component {
                         <label>State</label>
                         {/* <!-- State --> */}
                         <input 
+                        type="text"
                         name="state" 
                         value={this.state.company.state} 
                         onChange={this.handleChange} 
@@ -106,6 +109,7 @@ class CompanySignUp extends React.Component {
                         <label>Zip</label>
                         {/* <!-- Zip Code --> */}
                         <input 
+                        type="text"
                         name="zipcode" 
                         value={this.state.company.zipcode} 
                         onChange={this.handleChange} 
