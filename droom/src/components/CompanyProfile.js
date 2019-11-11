@@ -106,8 +106,8 @@ class CompanyProfile extends Component {
               <h3>Company City:</h3>
 
               <input 
-                type="text" 
-                name="city" 
+                type="text"
+                name="city"
                 value={this.props.companies.city}
                 onChange={this.handleChange} 
                 class="form-control mb-4" 
