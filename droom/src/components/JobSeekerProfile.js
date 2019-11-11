@@ -63,6 +63,7 @@ class JobSeekerProfile extends React.Component {
                 <h3>First Name:</h3>
 
                 <input 
+                type="text" 
                 name="firstName" 
                 value={this.props.seekers.firstName}
                 onChange={this.handleChange} 

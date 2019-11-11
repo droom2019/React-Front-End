@@ -46,6 +46,7 @@ class CompanyProfile extends Component {
               <h2>{this.props.companies.companyName}</h2>
 
               <input 
+                type="text" 
                 name="companyName" 
                 value={this.props.companies.companyName}
                 onChange={this.handleChange} 
@@ -66,6 +67,7 @@ class CompanyProfile extends Component {
               <textarea 
                 class="form-control rounded-0" 
                 rows="8"
+                type="text" 
                 name="companyDescription" 
                 value={this.props.companies.companyDescription}
                 onChange={this.handleChange} 
@@ -78,6 +80,7 @@ class CompanyProfile extends Component {
               <h3>Company Country:</h3>
 
               <input 
+              type="text" 
                 name="country" 
                 value={this.props.companies.country}
                 onChange={this.handleChange} 
@@ -90,6 +93,7 @@ class CompanyProfile extends Component {
               <h3>Company State:</h3>
 
               <input 
+                type="text" 
                 name="state" 
                 value={this.props.companies.state}
                 onChange={this.handleChange} 
@@ -102,6 +106,7 @@ class CompanyProfile extends Component {
               <h3>Company City:</h3>
 
               <input 
+                type="text" 
                 name="city" 
                 value={this.props.companies.city}
                 onChange={this.handleChange} 
@@ -114,6 +119,7 @@ class CompanyProfile extends Component {
               <h3>Company Zip Code:</h3>
 
               <input 
+                type="text" 
                 name="zipcode" 
                 value={this.props.companies.zipcode}
                 onChange={this.handleChange} 
