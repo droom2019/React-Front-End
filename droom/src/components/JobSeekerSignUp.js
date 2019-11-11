@@ -7,16 +7,16 @@ class JobSeekerSignUp extends React.Component {
    state = {
       userId: jwt(localStorage.getItem("token")).subject,
       seeker: {
-         firstName: "Will ",
-         lastName: "Soukkac",
+         firstName: "",
+         lastName: "",
          profilePicture: "",
-         month: 10,
-         day: 10,
-         year: 1988,
-         country: "USA",
-         state: "Texas",
-         city: "Grand Prairie",
-         zipcode: 75051
+         month: "",
+         day: "",
+         year: "",
+         country: "",
+         state: "",
+         city: "",
+         zipcode: ""
       }
    };
 
@@ -55,7 +55,7 @@ class JobSeekerSignUp extends React.Component {
                   <label>First name</label>
                {/* <!-- First name--> */}
                   <input
-                     type="firstName"
+                     type="text"
                      name="firstName"
                      value={this.state.seeker.firstName}
                      onChange={this.handleChange}
@@ -68,7 +68,7 @@ class JobSeekerSignUp extends React.Component {
                   <label>Last name</label>
                   {/* <!-- Password --> */}
                   <input
-                     type="lastName"
+                     type="text"
                      name="lastName"
                      value={this.state.seeker.lastName}
                      onChange={this.handleChange}
@@ -97,7 +97,7 @@ class JobSeekerSignUp extends React.Component {
                   <div class="form-group col-md-2">
                   <label>Day</label>
                   <input
-                     type="day"
+                     type="text"
                      name="day"
                      value={this.state.seeker.day}
                      onChange={this.handleChange}
@@ -109,7 +109,7 @@ class JobSeekerSignUp extends React.Component {
                   <div class="form-group col-md-4">
                   <label>Year</label>
                   <input
-                     type="year"
+                     type="text"
                      name="year"
                      value={this.state.seeker.year}
                      onChange={this.handleChange}
@@ -123,7 +123,7 @@ class JobSeekerSignUp extends React.Component {
                   <label>Country</label>
                   {/* <!-- Country --> */}
                   <input
-                  type="country"
+                  type="text"
                   name="country"
                   value={this.state.seeker.country}
                   onChange={this.handleChange}
@@ -137,7 +137,7 @@ class JobSeekerSignUp extends React.Component {
                   <label>City</label>
                   {/* <!-- City --> */}
                   <input
-                     type="city"
+                     type="text"
                      name="city"
                      value={this.state.seeker.city}
                      onChange={this.handleChange}
@@ -150,7 +150,7 @@ class JobSeekerSignUp extends React.Component {
                   <label>State</label>
                   {/* <!-- State --> */}
                   <input
-                     type="state"
+                     type="text"
                      name="state"
                      value={this.state.seeker.state}
                      onChange={this.handleChange}
@@ -163,8 +163,8 @@ class JobSeekerSignUp extends React.Component {
                   <label>Zip</label>
                   {/* <!-- Zip Code --> */}
                   <input
-                     type="zipcode"
-                     type="zipcode"
+                     type="text"
+                     name="zipcode"
                      value={this.state.seeker.zipcode}
                      onChange={this.handleChange}
                      class="form-control"
