@@ -59,7 +59,7 @@ class CompanySignUp extends React.Component {
                <textarea 
                class="form-control rounded-0" 
                rows="3"
-               type="text" 
+               type="text"
                name="companyDescription" 
                value={this.state.company.companyDescription} 
                onChange={this.handleChange} 
