@@ -2,7 +2,7 @@
   "dependencies": {
     "axios": "^0.18.1",
     "mdbreact": "^4.13.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react-loader-spinner": "^2.3.0",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
