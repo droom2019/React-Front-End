@@ -12,7 +12,7 @@
     "jwt-decode": "^2.2.0",
     "mdbootstrap": "^4.8.0",
     "mdbreact": "^4.14.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "popper.js": "^1.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
